@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>タイトル</title>
+</head>
+<body>
+    <h1>ゲーム情報</h1>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>{{form1.as_table}}</table>
+        <input type="submit" value="送信">
+    </form>
+</body>
+</html>
