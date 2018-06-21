@@ -4,13 +4,5 @@ from .models import GameInfo
 class GameInfoForm(forms.ModelForm):
     class Meta:
         model = GameInfo
-        fields = ("name", "id", "discription", "gamefile")
+        fields = ("name", "representative", "game_id", "discription", "gamefile", "panel", "movie")
 
-        def clean_id(self):
-
-            id = self.cleaned_data['id']
-
-            if id < 0 or id > 50:
-                raise forms.ValidationError('範囲外です。')
-
-            return id
