@@ -1,6 +1,9 @@
 from django.conf.urls import url
-from gameregister import views
+from gameregister.views import GameInfoCreateView
+
+app_name = 'register'
 
 urlpatterns = [
-    url('^$', views.kakikomi, name='kakikomi'),
+    #url('^$', views.kakikomi, name='kakikomi'),
+    url(r'^$', GameInfoCreateView.as_view()),
 ]

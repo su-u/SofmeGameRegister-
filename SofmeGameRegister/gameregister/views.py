@@ -1,12 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from gameregister.forms import GameForm
 from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
-from django.conf import settings
-from gameregister.models import FileNameModel
-import sys, os
-UPLOADE_DIR = os.path.dirname(os.path.abspath(__file__)) + '/static/files/'
+from django.views.generic import CreateView, UpdateView
+
+from .models import GameInfo
+from .forms import GameInfoForm
 
 def kakikomi(request):
     #if request.method != 'POST':
@@ -22,3 +21,10 @@ def kakikomi(request):
 
     #insert_data = FileNameModel(file_name = file.name)
     #insert_data.save()
+
+
+class GameInfoCreateView(CreateView):
+    model = GameInfo
+    form_class = GameInfoForm
+    template_name = "gameregister/gameregisterform.html"
+    success_url = "/"  # 成功時にリダイレクトするURL
