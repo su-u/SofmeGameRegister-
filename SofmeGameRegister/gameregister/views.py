@@ -12,13 +12,12 @@ from .forms import GameInfoForm
 
 def GameInfoView(request):
     form = GameInfoForm(request.POST or None, request.FILES)
-    if 'button_1' in request.POST:
-        # ボタン1がクリックされた場合の処理
-        form.fields['aname'] = forms.CharField(label='すいま')
+    if "button_1" in request.POST:
+        form.fields["aname"] = forms.CharField(label="すいま")
     if form.is_valid():
         form.save()
         return redirect("/complete")
-    return render(request, 'gameregister/gameregisterform.html', {'form': form} )
+    return render(request, "gameregister/gameregisterform.html", {"form": form} )
 
 def complete(request):
-    return render(request, 'gameregister/complete.html')
+    return render(request, "gameregister/complete.html")
