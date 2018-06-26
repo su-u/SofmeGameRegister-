@@ -16,7 +16,7 @@ class IntegerRangeField(models.IntegerField):
         return super(IntegerRangeField, self).formfield(**defaults)
 
 class GameInfo(models.Model):
-    game_id = IntegerRangeField("id", default = 1,primary_key = False, help_text='1~100', min_value=1, max_value=100)
+    game_id = IntegerRangeField("ゲームid", default = 1,primary_key = False, help_text='1~100', min_value=1, max_value=100)
     name = models.CharField("名前", max_length = 100, help_text='100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text='100文字以下', blank = True)
     discription = models.TextField()

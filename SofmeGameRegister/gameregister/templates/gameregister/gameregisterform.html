@@ -1,16 +1,11 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="UTF-8">
-    <title>タイトル</title>
-</head>
-<body>
-    <h1>ゲーム情報</h1>
-    <form action="" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table>{{ form.as_table }}</table>
-        <input type="submit" value="送信">
-    </form>
-</body>
-</html>
+﻿{% extends "gameregister/base.html" %}
+
+{% block body %}
+<h1>ゲーム情報</h1>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table>{{ form.as_table }}</table>
+    <input type="submit" value="送信">
+    <input type="submit" name="button_1" value="すいま追加">
+</form>
+{% endblock %}
