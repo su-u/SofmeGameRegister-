@@ -26,5 +26,3 @@ class GameInfo(models.Model):
 
 
     game_uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-
-admin.site.register(GameInfo)
