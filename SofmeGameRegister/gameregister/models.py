@@ -26,3 +26,7 @@ class GameInfo(models.Model):
 
 
     game_uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
+
+    def __str__(self):
+        return "id:<" + str(self.game_id).zfill(2) + ">    " + self.name
