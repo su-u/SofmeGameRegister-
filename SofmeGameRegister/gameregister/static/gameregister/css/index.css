@@ -1,3 +1,11 @@
+.errorlist {
+    color: red;
+}
+
+.error input, .error select {
+    border: 2px red solid;
+}
+
 input[type=text], select {
     width: 100%;
     padding: 12px 20px;
@@ -19,6 +27,7 @@ input[type=submit] {
     cursor: pointer;
 }
 
-    input[type=submit]:hover {
-        background-color: #45a049;
-    }
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+

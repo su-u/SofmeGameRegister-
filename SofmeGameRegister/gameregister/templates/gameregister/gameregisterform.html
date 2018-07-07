@@ -2,6 +2,7 @@
 
 {% block body %}
 <h1>ゲーム情報</h1>
+<p>{{message|safe}}</p>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table>{{ form.as_table }}</table>
