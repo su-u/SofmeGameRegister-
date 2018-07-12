@@ -1,12 +1,78 @@
 ﻿{% extends "gameregister/base.html" %}
 
+
 {% block body %}
 <h1>ゲーム情報</h1>
 <p>{{message|safe}}</p>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <table>{{ form.as_table }}</table>
+
+</form>
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="fieldWrapper">
+        {{ form.name.errors }}
+        <label for="{{ form.name.id_for_label }}">ゲーム名:</label>
+        {{ form.name }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.representative.errors }}
+        <label for="{{ form.representative.id_for_label }}">企画者:</label>
+        {{ form.representative }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.game_id.errors }}
+        <label for="{{ form.game_id.id_for_label }}">GmaeID:</label>
+        {{ form.game_id }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.discription.errors }}
+        <label for="{{ form.discription.id_for_label }}">Discription:</label>
+        {{ form.discription }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.gamefile.errors }}
+        <label for="{{ form.gamefile.id_for_label }}">gamefile:</label>
+        {{ form.gamefile }}
+        <div id="js-selectFile">
+            <input type="button" class="original_btn" value="ファイル選択" onClick="$('#gamefile').click();">
+            <span class="icon">未選択</span>
+            <input type="text" id="fake_text_box" value="" size="35" readonly onClick="$('#gamefile').click();">
+        </div>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.panel.errors }}
+        <label for="{{ form.panel.id_for_label }}">panelfile:</label>
+        {{ form.panel }}
+    </div>
+    <div class="fieldWrapper">
+        {{ form.movie.errors }}
+        <label for="{{ form.movie.id_for_label }}">moviefile:</label>
+        {{ form.movie }}
+    </div>
+
+
     <input type="submit" value="送信">
     <input type="submit" name="button_1" value="すいま追加">
 </form>
+<script>
+    $('#js-selectFile').on('click', 'button', function () {
+        $('#js-upload').click();
+        return false;
+    });
+
+    $('#js-upload').on('change', function () {
+        //選択したファイル情報を取得し変数に格納
+        var file = $(this).prop('files')[0];
+        //アイコンを選択中に変更
+        $('#js-selectFile').find('.icon').addClass('select').html('選択中');
+        //未選択→選択の場合（.filenameが存在しない場合）はファイル名表示用の<div>タグを追加
+        if (!($('.filename').length)) {
+            $('#js-selectFile').append('<div class="filename"></div>');
+        };
+        //ファイル名を表示
+        $('.filename').html('ファイル名：' + file.name);
+    });
+</script>
 {% endblock %}
