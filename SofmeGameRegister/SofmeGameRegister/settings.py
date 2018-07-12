@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gameregister',
+    'bootstrap4',
 )
 
 MIDDLEWARE_CLASSES = (
