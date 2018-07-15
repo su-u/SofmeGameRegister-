@@ -34,9 +34,15 @@ class GameInfo(models.Model):
 
     movie = models.FileField(upload_to = "movie", blank = True)
 
-    created_at = models.DateTimeField(auto_now_add = True, editable = True)
+    created_at = models.DateTimeField(auto_now_add = True)
     updated_at = models.DateTimeField(auto_now = True)
 
     def __str__(self):
-        return "id:<" + str(self.game_id).zfill(2) + ">    " + self.name
+        return str(self.game_uuid)
 
+
+class AccessLog(models.Model):
+    game_uuid = models.UUIDField(primary_key = False)
+    ip = models.GenericIPAddressField()
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)

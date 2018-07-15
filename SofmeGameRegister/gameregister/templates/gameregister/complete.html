@@ -1,5 +1,7 @@
 ﻿{% extends "gameregister/base.html" %}
+{% load static %}
 
 {% block body %}
-<h1>提出完了</h1>
+<h1>{{title}}</h1>
+<p>{{message|safe}}</p>
 {% endblock %}
