@@ -17,17 +17,26 @@ class IntegerRangeField(models.IntegerField):
         return super(IntegerRangeField, self).formfield(**defaults)
 
 class GameInfo(models.Model):
-    game_id = IntegerRangeField("ゲームid", default = 1,primary_key = False, help_text='1~100', min_value=1, max_value=100)
+    game_id = IntegerRangeField("ゲームid", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text = "100文字以下", blank = True)
     discription = models.TextField()
-    gamefile = models.FileField(upload_to="gamefile", blank = True)
-    panel = models.FileField(upload_to="panel", blank = True)
-    movie = models.FileField(upload_to="movie", blank = True)
+    
+    game_uuid = models.UUIDField(primary_key = False,default = uuid.uuid4, editable=False)
 
+    gamefile = models.FileField(upload_to = "gamefile", blank = True)
 
-    game_uuid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    panel = models.FileField(upload_to = "panel", blank = True)
 
+    picture_1 = models.FileField(upload_to = "picture", blank = True)
+    picture_2 = models.FileField(upload_to = "picture", blank = True)
+    picture_3 = models.FileField(upload_to = "picture", blank = True)
+
+    movie = models.FileField(upload_to = "movie", blank = True)
+
+    created_at = models.DateTimeField(auto_now_add = True, editable = True)
+    updated_at = models.DateTimeField(auto_now = True)
 
     def __str__(self):
         return "id:<" + str(self.game_id).zfill(2) + ">    " + self.name
+

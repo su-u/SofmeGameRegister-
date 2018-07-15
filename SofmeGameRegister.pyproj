@@ -50,9 +50,6 @@
     <Folder Include="SofmeGameRegister" />
     <Folder Include="C:\Users\SAVIOR\Source\Repos\SofmeGameRegister\SofmeGameRegister\form\templates\" />
     <Folder Include="C:\Users\SAVIOR\Source\Repos\SofmeGameRegister\SofmeGameRegister\form\templates\form\" />
-    <Folder Include="SofmeGameRegister\form\" />
-    <Folder Include="SofmeGameRegister\form\templates\" />
-    <Folder Include="SofmeGameRegister\form\templates\form\" />
     <Folder Include="SofmeGameRegister\gameregister\" />
     <Folder Include="SofmeGameRegister\gameregister\migrations\" />
     <Folder Include="SofmeGameRegister\gameregister\static\" />
@@ -102,7 +99,13 @@
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\jquery-3.3.1.js" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\base.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\complete.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\edit.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\gameregisterform.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\index.html">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

@@ -1,0 +1,31 @@
+{% extends "gameregister/base.html" %}
+{% load static %}
+
+{% block body %}
+<h1>{{title}}</h1>
+<p>{{message|safe}}</p>
+<form method="post" action="">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>created_at</th>
+                <th>updated_at</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.game_id }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.created_at }}</td>
+                <td>{{ item.updated_at }}</td>
+                <td><a href="{% url 'edit' item.game_id %}">更新画面へ</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</form>
+{% endblock %}
