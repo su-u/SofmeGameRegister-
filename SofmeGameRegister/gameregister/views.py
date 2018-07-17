@@ -52,14 +52,15 @@ def edit(request, editing_id):
             "movie" : data.movie
             })
     d = {
+        "title": "登録情報更新",
         "form": form,
     }
-    return render(request, "gameregister/edit.html", d)
+    return render(request, "gameregister/gameregisterform.html", d)
 
 def index(request):
     data = GameInfo.objects.all()
     d = {
-        "title": "一覧",
+        "title": "提出一覧",
         "data": data,
         }
 

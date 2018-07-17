@@ -13,6 +13,9 @@ body {
     border: 2px red solid;
 }
 
+.fieldWrapper .row{
+    padding-right:100%;
+}
 input[type=text], select {
     width: 100%;
     padding: 12px 20px;
@@ -21,6 +24,18 @@ input[type=text], select {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    background-color: #FFECB3;
+}
+
+input[type="number"] {
+    width: 150px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #FFECB3;
 }
 
 input[type="file"] {
@@ -69,7 +84,7 @@ input[type="file"] {
 }
 
 textarea {
-    margin-top:10px;
+    margin-top: 10px;
     border: 1px solid #D7D7D7;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -78,6 +93,11 @@ textarea {
     padding: 10px;
     height: 210px;
     width: 100%;
+    background-color:#FFECB3;
+}
+
+.fileform {
+    display: none;
 }
 
 .formsend {
@@ -85,7 +105,7 @@ textarea {
 }
 
 .formsend input[type=submit] {
-    background: #cd5d5d url(/stylerecipe_img/arrow_white.png) no-repeat;
+    background: #F4511E url(/stylerecipe_img/arrow_white.png) no-repeat;
     background-position: 20px;
     border: none;
     border-radius: 2px;
@@ -136,7 +156,7 @@ label > input {
 }
 
 .card {
-    padding:20px;
+    padding:40px;
     background: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -150,20 +170,24 @@ label > input {
 
 /*index*/
 table {
-    margin: 10px;
-    font-size: 14pt;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
 }
 
-table tr th {
-    background-color:#009;
-    color:white;
-    padding:2px, 10px;
-    border-width:2px;
+thead th {
+    color: #2E7D32 !important;
+    padding-bottom: 10px;
 }
-
 table tr td {
-    background-color:#eee;
-    color:#666;
-    padding:2px, 10px;
-    border-width:2px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
+
+tbody tr td {
+    border-top: 1px solid rgba(0,0,0,.12);
+    margin: 30px 30px;
+}
+

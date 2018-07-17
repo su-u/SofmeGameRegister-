@@ -17,7 +17,7 @@ class IntegerRangeField(models.IntegerField):
         return super(IntegerRangeField, self).formfield(**defaults)
 
 class GameInfo(models.Model):
-    game_id = IntegerRangeField("ゲームid", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
+    game_id = IntegerRangeField("GameID", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text = "100文字以下", blank = True)
     discription = models.TextField()
@@ -34,8 +34,8 @@ class GameInfo(models.Model):
 
     movie = models.FileField(upload_to = "movie", blank = True)
 
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
+    created_at = models.DateTimeField("作成時", auto_now_add = True)
+    updated_at = models.DateTimeField("更新時", auto_now = True)
 
     def __str__(self):
         return str(self.game_uuid)
