@@ -17,7 +17,8 @@ def GameInfoView(request):
     form = GameInfoForm(request.POST or None, request.FILES)
     if form.is_valid():
         form.save()
-        return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : request.POST["game_uuid"]})
+        data = GameInfo.objects.get(pk = request.POST["game_id"])
+        return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data.game_uuid})
     p = {
         "title" : "ゲーム情報登録",
         "form" : form,

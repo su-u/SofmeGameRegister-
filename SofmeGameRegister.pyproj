@@ -50,6 +50,9 @@
     <Folder Include="SofmeGameRegister" />
     <Folder Include="C:\Users\SAVIOR\Source\Repos\SofmeGameRegister\SofmeGameRegister\form\templates\" />
     <Folder Include="C:\Users\SAVIOR\Source\Repos\SofmeGameRegister\SofmeGameRegister\form\templates\form\" />
+    <Folder Include="SofmeGameRegister\form\" />
+    <Folder Include="SofmeGameRegister\form\templates\" />
+    <Folder Include="SofmeGameRegister\form\templates\form\" />
     <Folder Include="SofmeGameRegister\gameregister\" />
     <Folder Include="SofmeGameRegister\gameregister\migrations\" />
     <Folder Include="SofmeGameRegister\gameregister\static\" />
@@ -72,30 +75,7 @@
     </Interpreter>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap-grid.css" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap-grid.css.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap-grid.min.css" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap-grid.min.css.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap-reboot.css" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap-reboot.css.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap-reboot.min.css" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap-reboot.min.css.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap.css" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap.css.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap.min.css" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\bootstrap.min.css.map" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\index.css" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\bootstrap.bundle.js" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\bootstrap.bundle.js.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\bootstrap.bundle.min.js" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\bootstrap.bundle.min.js.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\bootstrap.js" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\bootstrap.js.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\bootstrap.min.js" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\bootstrap.min.js.map" />
-    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\button.js">
-      <SubType>Code</SubType>
-    </Content>
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\jquery-3.3.1.js" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\base.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\complete.html" />

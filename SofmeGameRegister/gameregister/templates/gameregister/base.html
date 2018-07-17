@@ -1,15 +1,19 @@
 ﻿{%load static%}
 <!DOCTYPE html>
-<html>
-<head lang="ja">
+<html lang="ja">
+<head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'gameregister/css/index.css' %}" />
+    <link href="{% static 'gameregister/css/index.css' %}" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/earlyaccess/sawarabigothic.css" rel="stylesheet" />
+
     <script src="{% static 'gameregister/js/jquery-3.3.1.js' %}"></script>
     <script src="{% static 'gameregister/js/button.js' %}"></script>
     <title>GameRegister</title>
 </head>
 <body>
     {% block body %}
+
     {% endblock %}
 </body>
 </html>
