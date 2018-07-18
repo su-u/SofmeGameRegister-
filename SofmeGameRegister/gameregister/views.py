@@ -64,4 +64,10 @@ def index(request):
         "data": data,
         }
 
-    return render(request, 'gameregister/index.html', d)
+    return render(request, "gameregister/index.html", d)
+
+def lp(request):
+    d = {
+        "title": "ランディングページ",
+        }
+    return render(request, "gameregister/lp.html", d)
