@@ -12,12 +12,14 @@ body {
 .error input, .error select {
     border: 2px red solid;
 }
-
-.fieldWrapper .row{
-    padding-right:100%;
+.fieldWrapper {
+    margin:20px 0 20px 0;
+}
+.fieldWrapper .row {
+    padding-right: 100%;
 }
 
-input[type=text], input[type="number"] {
+.fieldWrapper input[type=text], .fieldWrapper input[type="number"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -25,19 +27,52 @@ input[type=text], input[type="number"] {
     border-bottom: 1px solid #ccc;
 }
 
-input[type="number"] {
+.fieldWrapper input[type="number"] {
     width: 200px;
 }
 
-input[type=text]:focus, input[type=number]:focus {
+.fieldWrapper input[type=text]:focus, .fieldWrapper input[type=number]:focus {
     outline: 0;
     border-bottom: 2px solid #1E88E5;
 }
 
-input::placeholder {
-    font-size: 1.2em;
+.fieldWrapper input::placeholder {
+    font-size: 18px;
     font-style: italic;
     color: #BDBDBD;
+}
+
+.fieldWrapper input[type="checkbox"] {
+    display: none;
+}
+
+.fieldWrapper [type="checkbox"] + label::before {
+    width: 20px;
+    height: 20px;
+    line-height: 24px;
+    font-size: 35px;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    content: "\2713";
+    color: transparent;
+    margin: 0;
+    padding: 0;
+    border-radius: 4px;
+    border: 3px solid #dddddd;
+    margin: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.fieldWrapper [type="checkbox"] + label {
+    margin:0 20px 0 0;
+}
+
+input[type="checkbox"]:checked + label::before {
+    font-size: 25px;
+    background: #fff !important;
+    border-color: #1E88E5 !important;
+    color: #1E88E5 !important;
 }
 
 input[type="file"] {
@@ -85,7 +120,7 @@ input[type="file"] {
 }
 
 
-.fileform {
+.invisible {
     display: none;
 }
 
@@ -138,7 +173,7 @@ input[type="file"] {
 
 
 label > input {
-    display: none; /* アップロードボタンのスタイルを無効にする */
+    display: none;
 }
 
 .container-fluid{

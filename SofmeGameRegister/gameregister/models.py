@@ -1,7 +1,6 @@
 from django.db import models
 from datetime import datetime
 from django.contrib import admin
-from django import forms
 import uuid
 
 
@@ -21,8 +20,15 @@ class GameInfo(models.Model):
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text = "100文字以下")
     discription = models.TextField()
+
+    windows = models.BooleanField("Windows端末", blank = True)
+    android = models.BooleanField("Android端末", blank = True)
+    vr = models.BooleanField("VR", blank = True)
+    other = models.BooleanField("その他独自筐体", blank = True)
+
+
     
-    game_uuid = models.UUIDField(primary_key = False,default = uuid.uuid4, editable=False)
+    game_uuid = models.UUIDField(primary_key = False, default = uuid.uuid4, editable=False)
 
     gamefile = models.FileField(upload_to = "gamefile", blank = True)
 

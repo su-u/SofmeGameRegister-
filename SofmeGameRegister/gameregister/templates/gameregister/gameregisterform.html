@@ -52,48 +52,63 @@
                         <label for="{{ form.discription.id_for_label }}">Discription:</label>
                         {{ form.discription }}
                     </div>
+                    <div class="fieldWrapper">
+                        <div>動作端末:</div>
+                        {{ form.windows.errors }}
+                        {{ form.windows }}
+                        <label for="{{ form.windows.id_for_label }}">Windwos</label>
+                        {{ form.android.errors }}
+                        {{ form.android }}
+                        <label for="{{ form.android.id_for_label }}">Android</label>
+                        {{ form.vr.errors }}
+                        {{ form.vr }}
+                        <label for="{{ form.vr.id_for_label }}">VR</label>
+                        {{ form.other.errors }}
+                        {{ form.other }}
+                        <label for="{{ form.other.id_for_label }}">その他・独自筐体</label>
+                    </div>
                     <div class="header">
                         <h1>ファイル登録</h1>
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.gamefile.errors }}
                         <label for="{{ form.gamefile.id_for_label }}">gamefile:</label>
-                        <div class="fileform">
+                        <div class="invisible">
                             {{ form.gamefile }}
                         </div>
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.panel.errors }}
                         <label for="{{ form.panel.id_for_label }}">panelfile:</label>
-                        <div class="fileform">
+                        <div class="invisible">
                             {{ form.panel }}
                         </div>
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.picture_1.errors }}
                         <label for="{{ form.picture_1.id_for_label }}">画像1:</label>
-                        <div class="fileform">
+                        <div class="invisible">
                             {{ form.picture_1 }}
                         </div>
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.picture_2.errors }}
                         <label for="{{ form.picture_2.id_for_label }}">画像2:</label>
-                        <div class="fileform">
+                        <div class="invisible">
                             {{ form.picture_2 }}
                         </div>
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.picture_2.errors }}
                         <label for="{{ form.picture_2.id_for_label }}">画像3:</label>
-                        <div class="fileform">
+                        <div class="invisible">
                             {{ form.picture_2 }}
                         </div>
                     </div>
                     <div class="fieldWrapperfile ">
                         {{ form.movie.errors }}
                         <label for="{{ form.movie.id_for_label }}">moviefile:</label>
-                        <div class="fileform">
+                        <div class="invisible">
                             {{ form.movie }}
                         </div>
                     </div>

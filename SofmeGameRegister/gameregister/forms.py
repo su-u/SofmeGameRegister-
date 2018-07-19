@@ -4,8 +4,8 @@ from .models import GameInfo
 class GameInfoForm(forms.ModelForm):
     class Meta:
         model = GameInfo
-        fields = ["name", "representative", "game_id", "discription", "gamefile",
-                 "panel","picture_1","picture_2","picture_3" ,"movie"]
+        fields = ["name", "representative", "game_id", "discription", "windows", "android", "vr", "other",
+                 "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie"]
         
         widgets = {
             "name": forms.TextInput(attrs={"placeholder":"ゲーム名"}),
