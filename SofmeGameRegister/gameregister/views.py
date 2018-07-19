@@ -12,7 +12,6 @@ import logging
 from .models import GameInfo
 from .forms import GameInfoForm
 
-
 def GameInfoView(request):
     form = GameInfoForm(request.POST or None, request.FILES)
     if request.method == "POST":

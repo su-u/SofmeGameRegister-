@@ -2,25 +2,7 @@
 {% load static %}
 
 {% block body %}
-<script>
-    $('#js-selectFile').on('click', 'button', function () {
-        $('#js-upload').click();
-        return false;
-    });
 
-    $('#js-upload').on('change', function () {
-        //選択したファイル情報を取得し変数に格納
-        var file = $(this).prop('files')[0];
-        //アイコンを選択中に変更
-        $('#js-selectFile').find('.icon').addClass('select').html('選択中');
-        //未選択→選択の場合（.filenameが存在しない場合）はファイル名表示用の<div>タグを追加
-        if (!($('.filename').length)) {
-            $('#js-selectFile').append('<div class="filename"></div>');
-        };
-        //ファイル名を表示
-        $('.filename').html('ファイル名：' + file.name);
-    });
-</script>
 <p>{{message|safe}}</p>
 <section class="content">
     <div class="container-fluid">
@@ -56,7 +38,7 @@
                         <div>動作端末:</div>
                         {{ form.windows.errors }}
                         {{ form.windows }}
-                        <label for="{{ form.windows.id_for_label }}">Windwos</label>
+                        <label for="{{ form.windows.id_for_label }}">Windows</label>
                         {{ form.android.errors }}
                         {{ form.android }}
                         <label for="{{ form.android.id_for_label }}">Android</label>
@@ -72,45 +54,33 @@
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.gamefile.errors }}
-                        <label for="{{ form.gamefile.id_for_label }}">gamefile:</label>
-                        <div class="invisible">
-                            {{ form.gamefile }}
-                        </div>
+                        <div class="filelabel"><label for="{{ form.gamefile.id_for_label }}">ゲームファイル:</label></div>
+                        {{ form.gamefile }}
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.panel.errors }}
-                        <label for="{{ form.panel.id_for_label }}">panelfile:</label>
-                        <div class="invisible">
-                            {{ form.panel }}
-                        </div>
+                        <div class="filelabel"><label for="{{ form.panel.id_for_label }}">パネルファイル:</label></div>
+                        {{ form.panel }}
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.picture_1.errors }}
-                        <label for="{{ form.picture_1.id_for_label }}">画像1:</label>
-                        <div class="invisible">
-                            {{ form.picture_1 }}
-                        </div>
+                        <div class="filelabel"><label for="{{ form.picture_1.id_for_label }}">画像1:</label></div>
+                        {{ form.picture_1 }}
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.picture_2.errors }}
-                        <label for="{{ form.picture_2.id_for_label }}">画像2:</label>
-                        <div class="invisible">
-                            {{ form.picture_2 }}
-                        </div>
+                       <div class="filelabel"> <label for="{{ form.picture_2.id_for_label }}">画像2:</label></div>
+                        {{ form.picture_2 }}
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.picture_2.errors }}
-                        <label for="{{ form.picture_2.id_for_label }}">画像3:</label>
-                        <div class="invisible">
-                            {{ form.picture_2 }}
-                        </div>
+                        <div class="filelabel"><label for="{{ form.picture_3.id_for_label }}">画像3:</label></div>
+                        {{ form.picture_2 }}
                     </div>
                     <div class="fieldWrapperfile ">
                         {{ form.movie.errors }}
-                        <label for="{{ form.movie.id_for_label }}">moviefile:</label>
-                        <div class="invisible">
-                            {{ form.movie }}
-                        </div>
+                        <div class="filelabel"><label for="{{ form.movie.id_for_label }}">動画:</label></div>
+                        {{ form.movie }}
                     </div>
                     <div class="formsend">
                         <input type="submit" value="送信">

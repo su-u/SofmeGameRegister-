@@ -3,6 +3,8 @@ from datetime import datetime
 from django.contrib import admin
 import uuid
 
+#FILE_PATH = "gameregister/static/gameregister"
+FILE_PATH = ""
 
 # Create your models here.
 
@@ -30,15 +32,15 @@ class GameInfo(models.Model):
     
     game_uuid = models.UUIDField(primary_key = False, default = uuid.uuid4, editable=False)
 
-    gamefile = models.FileField(upload_to = "gamefile", blank = True)
+    gamefile = models.FileField(upload_to = FILE_PATH + "gamefile", blank = True)
 
-    panel = models.FileField(upload_to = "panel", blank = True)
+    panel = models.FileField(upload_to = FILE_PATH + "panel", blank = True)
 
-    picture_1 = models.FileField(upload_to = "picture", blank = True)
-    picture_2 = models.FileField(upload_to = "picture", blank = True)
-    picture_3 = models.FileField(upload_to = "picture", blank = True)
+    picture_1 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
+    picture_2 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
+    picture_3 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
 
-    movie = models.FileField(upload_to = "movie", blank = True)
+    movie = models.FileField(upload_to = FILE_PATH + "movie", blank = True)
 
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)
