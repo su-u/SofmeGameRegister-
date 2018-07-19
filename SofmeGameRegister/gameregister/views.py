@@ -24,7 +24,7 @@ def GameInfoView(request):
         form = GameInfoForm(initial = {
             "name": "", 
             "representative" : "", 
-            "game_id" : "0", 
+            "game_id" : "", 
             "discription" : "", 
             "gamefile" : "",
             "panel" : "",
