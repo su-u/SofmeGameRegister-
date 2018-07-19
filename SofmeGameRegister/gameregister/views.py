@@ -15,10 +15,24 @@ from .forms import GameInfoForm
 
 def GameInfoView(request):
     form = GameInfoForm(request.POST or None, request.FILES)
-    if form.is_valid():
-        form.save()
-        data = GameInfo.objects.get(pk = request.POST["game_id"])
-        return render(request, "gameregister/complete.html", {"title" : "ゲーム登録完了", "message" : data.game_uuid})
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            data = GameInfo.objects.get(pk = request.POST["game_id"])
+            return render(request, "gameregister/complete.html", {"title" : "ゲーム登録完了", "message" : data.game_uuid})
+    else:
+        form = GameInfoForm(initial = {
+            "name": "", 
+            "representative" : "", 
+            "game_id" : "0", 
+            "discription" : "", 
+            "gamefile" : "",
+            "panel" : "",
+            "picture_1" : "",
+            "picture_2" : "",
+            "picture_3" : "",
+            "movie" : ""
+            })
     p = {
         "title" : "ゲーム情報登録",
         "form" : form,

@@ -1,5 +1,5 @@
 body {
-    font-family: "Sawarabi Gothic";
+    font-family: 'Noto Sans Japanese';
     background-color:#c1c1c1;
 }
 
@@ -16,26 +16,28 @@ body {
 .fieldWrapper .row{
     padding-right:100%;
 }
-input[type=text], select {
+
+input[type=text], input[type="number"] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: #FFECB3;
+    border: none;
+    border-bottom: 1px solid #ccc;
 }
 
 input[type="number"] {
-    width: 150px;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    background-color: #FFECB3;
+    width: 200px;
+}
+
+input[type=text]:focus, input[type=number]:focus {
+    outline: 0;
+    border-bottom: 2px solid #1E88E5;
+}
+
+input::placeholder {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #BDBDBD;
 }
 
 input[type="file"] {
@@ -49,13 +51,12 @@ input[type="file"] {
     cursor: pointer;
 }
 
+.fieldWrapperfile {
+    margin:20px 0 20px 0;
+}
 .fieldWrapperfile label {
     position: relative;
     border: 1px solid #D7D7D7;
-    box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-    -o-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-    -ms-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
-    -moz-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
     cursor: pointer;
     display: block;
@@ -83,38 +84,28 @@ input[type="file"] {
     width: 100px;
 }
 
-textarea {
-    margin-top: 10px;
-    border: 1px solid #D7D7D7;
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    font-size: 13px;
-    padding: 10px;
-    height: 210px;
-    width: 100%;
-    background-color:#FFECB3;
-}
 
 .fileform {
     display: none;
 }
 
 .formsend {
-    margin: 0 0 10px;
+    margin: 50px 0 50px 0;
 }
 
 .formsend input[type=submit] {
-    background: #F4511E url(/stylerecipe_img/arrow_white.png) no-repeat;
-    background-position: 20px;
+    background: #1E88E5 url(../img/baseline_send_white_24dp.png) 80% center no-repeat;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     transition: 0.2s ease-in-out;
+    font-weight: 900;
     color: #fff;
     cursor: pointer;
-    font-size: 14px;
     height: 50px;
     width: 180px;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 100%;
 }
 
 .formsend input[type=submit]:hover {
@@ -122,7 +113,7 @@ textarea {
 }
 
 .formsend input[disabled=disabled] {
-    background: #B4B4B4 url(/stylerecipe_img/arrow_gray.png) no-repeat;
+    background: #B4B4B4 url(gameregister/img/baseline_send_white_36dp.png) no-repeat;
     background-position: 20px;
     color: #7E7E7E;
     cursor: default;
