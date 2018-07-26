@@ -11,7 +11,7 @@ import logging
 from ipware import get_client_ip
 
 from .models import GameInfo, Log
-from .forms import GameInfoForm
+from .forms import GameInfoForm, EditForm
 
 def GameInfoView(request):
     form = GameInfoForm(request.POST or None, request.FILES)
@@ -34,7 +34,7 @@ def GameInfoView(request):
             "picture_2" : "",
             "picture_3" : "",
             "movie" : "",
-            "edit_id":"",
+            "edit_uuid": "",
             })
     p = {
         "title" : "ゲーム情報登録",
@@ -45,16 +45,19 @@ def GameInfoView(request):
 def complete(request):
     return render(request, "gameregister/complete.html")
 
-def edit(request, editing_id):
+def edita(request, editing_id):
     data = GameInfo.objects.get(pk = editing_id)
+    form = GameInfoForm(request.POST, request.FILES, instance=data)
+    edit_form = EditForm()
     if request.method == "POST":
-        form = GameInfoForm(request.POST, request.FILES, instance=data)
-        if form.is_valid():
+        form_vali = form.is_valid()
+        edit_vali = edit_form.is_valid()
+
+        if form_vali and edit_vali:
             form.save()
             id = GameInfo.objects.get(pk = editing_id)
             writeLog(request, id)
             return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
-            #return redirect("/complete",{"title" : "ゲーム更新完了", "message" : "a"})
     else:
         form = GameInfoForm(initial = {
             "name": data.name, 
@@ -66,12 +69,13 @@ def edit(request, editing_id):
             "picture_1" : data.picture_1,
             "picture_2" : data.picture_2,
             "picture_3" : data.picture_3,
-            "movie" : data.movie
+            "movie" : data.movie,
             })
 
     d = {
         "title": "登録情報更新",
-        "form":form,
+
+        "edit_form": edit_form
     }
     return render(request, "gameregister/edit.html", d)
 
@@ -99,3 +103,18 @@ def lp(request):
         }
     return render(request, "gameregister/lp.html", d)
 
+def edit(request, editing_id):
+    edit_form = EditForm()
+    if request.method == "POST":
+        edit_vali = edit_form.is_valid()
+
+        if edit_form.is_valid():
+            return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
+
+
+    d = {
+        "title": "登録情報更新",
+
+        "edit_form": edit_form
+    }
+    return render(request, "gameregister/edit.html", d)

@@ -82,13 +82,6 @@
                         <div class="filelabel"><label for="{{ form.movie.id_for_label }}">動画:</label></div>
                         {{ form.movie }}
                     </div>
-                    {% if edit == True %}
-                    <div class="fieldWrapperfile ">
-                        {{ form.edit_uuid.errors }}
-                        <div class="filelabel"><label for="{{ form.edit_uuid.id_for_label }}">動画:</label></div>
-                        {{ form.edit_uuid }}
-                    </div>
-                    {% endif %}
                     <div class="formsend">
                         <input type="submit" value="送信">
                     </div>

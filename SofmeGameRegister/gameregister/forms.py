@@ -1,5 +1,6 @@
 from django import forms
 from .models import GameInfo
+
  
 class GameInfoForm(forms.ModelForm):
     class Meta:
@@ -20,3 +21,22 @@ class GameInfoForm(forms.ModelForm):
             #"picture_3": forms.FileInput(attrs={"onchange":"picture_3text.style.display='inline-block'; picture_3text.value = this.value;"}),
             #"movie": forms.FileInput(attrs={"onchange":"movietext.style.display='inline-block'; movietext.value = this.value;"}),
         }
+
+class EditForm(forms.Form):
+    edit_uuid = EditUuidField()
+
+    def clean(self):
+        clen_data = super().clean()
+        uuid = clean_data["edit_uuid"]
+        if(len(uuid) == 0):
+            raise forms.ValidationError("未入力")
+
+class EditUuidField(forms.Field):
+    def clean(self, value):
+        if not value:
+            raise forms.ValidationError('Enter at least one uuid')
+        emails = value.split(',')
+        for email in emails:
+            if not is_valid_email(email):
+                raise forms.ValidationError('%s is not a valid e-mail address.' % email)
+        return emails

@@ -77,15 +77,13 @@
                         <div class="filelabel"><label for="{{ form.picture_3.id_for_label }}">画像3:</label></div>
                         {{ form.picture_2 }}
                     </div>
-                    <div class="fieldWrapperfile ">
+                    <div class="fieldWrapperfile">
                         {{ form.movie.errors }}
                         <div class="filelabel"><label for="{{ form.movie.id_for_label }}">動画:</label></div>
                         {{ form.movie }}
                     </div>
-                    <div class="fieldWrapperfile ">
-                        {{ forms.edit_form.game_uuid.as_p }}
-                        <div class="filelabel"><label for="{{ eidt.game_uuid.id_for_label }}">UUID:</label></div>
-                        {{ edit.game_uuid.edit }}
+                    <div class="fieldWrapper">
+                        {{edit_form.as_table}}
                     </div>
                     <div class="formsend">
                         <input type="submit" value="送信">
