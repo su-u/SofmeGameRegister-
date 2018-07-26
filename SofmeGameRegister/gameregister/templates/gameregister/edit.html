@@ -2,90 +2,97 @@
 {% load static %}
 
 {% block body %}
-<script>
-    $('#js-selectFile').on('click', 'button', function () {
-        $('#js-upload').click();
-        return false;
-    });
 
-    $('#js-upload').on('change', function () {
-        //選択したファイル情報を取得し変数に格納
-        var file = $(this).prop('files')[0];
-        //アイコンを選択中に変更
-        $('#js-selectFile').find('.icon').addClass('select').html('選択中');
-        //未選択→選択の場合（.filenameが存在しない場合）はファイル名表示用の<div>タグを追加
-        if (!($('.filename').length)) {
-            $('#js-selectFile').append('<div class="filename"></div>');
-        };
-        //ファイル名を表示
-        $('.filename').html('ファイル名：' + file.name);
-    });
-</script>
-<h1>{{title}}</h1>
 <p>{{message|safe}}</p>
-<div class="container-fluid">
-    <div class="row clearfix">
-        <form action="" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.non_field_errors }}
-            <div class="fieldWrapper">
-                {{ form.name.errors }}
-                <label for="{{ form.name.id_for_label }}">ゲーム名:</label>
-                {{ form.name }}
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="header">
+                <h1>{{title}}</h1>
             </div>
-            <div class="fieldWrapper">
-                {{ form.representative.errors }}
-                <label for="{{ form.representative.id_for_label }}">企画者:</label>
-                {{ form.representative }}
+            <div class="body">
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+                    <div class="fieldWrapper">
+                        {{ form.name.errors }}
+                        <label for="{{ form.name.id_for_label }}">ゲーム名:</label>
+                        {{ form.name }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.representative.errors }}
+                        <label for="{{ form.representative.id_for_label }}">企画者:</label>
+                        {{ form.representative }}
+                    </div>
+                    <div class="fieldWrapper idnumber">
+                        {{ form.game_id.errors }}
+                        <label for="{{ form.game_id.id_for_label }}" class="row">GameID:</label>
+                        {{ form.game_id }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.discription.errors }}
+                        <label for="{{ form.discription.id_for_label }}">Discription:</label>
+                        {{ form.discription }}
+                    </div>
+                    <div class="fieldWrapper">
+                        <div>動作端末:</div>
+                        {{ form.windows.errors }}
+                        {{ form.windows }}
+                        <label for="{{ form.windows.id_for_label }}">Windows</label>
+                        {{ form.android.errors }}
+                        {{ form.android }}
+                        <label for="{{ form.android.id_for_label }}">Android</label>
+                        {{ form.vr.errors }}
+                        {{ form.vr }}
+                        <label for="{{ form.vr.id_for_label }}">VR</label>
+                        {{ form.other.errors }}
+                        {{ form.other }}
+                        <label for="{{ form.other.id_for_label }}">その他・独自筐体</label>
+                    </div>
+                    <div class="header">
+                        <h1>ファイル登録</h1>
+                    </div>
+                    <div class="fieldWrapperfile">
+                        {{ form.gamefile.errors }}
+                        <div class="filelabel"><label for="{{ form.gamefile.id_for_label }}">ゲームファイル:</label></div>
+                        {{ form.gamefile }}
+                    </div>
+                    <div class="fieldWrapperfile">
+                        {{ form.panel.errors }}
+                        <div class="filelabel"><label for="{{ form.panel.id_for_label }}">パネルファイル:</label></div>
+                        {{ form.panel }}
+                    </div>
+                    <div class="fieldWrapperfile">
+                        {{ form.picture_1.errors }}
+                        <div class="filelabel"><label for="{{ form.picture_1.id_for_label }}">画像1:</label></div>
+                        {{ form.picture_1 }}
+                    </div>
+                    <div class="fieldWrapperfile">
+                        {{ form.picture_2.errors }}
+                        <div class="filelabel"> <label for="{{ form.picture_2.id_for_label }}">画像2:</label></div>
+                        {{ form.picture_2 }}
+                    </div>
+                    <div class="fieldWrapperfile">
+                        {{ form.picture_2.errors }}
+                        <div class="filelabel"><label for="{{ form.picture_3.id_for_label }}">画像3:</label></div>
+                        {{ form.picture_2 }}
+                    </div>
+                    <div class="fieldWrapperfile ">
+                        {{ form.movie.errors }}
+                        <div class="filelabel"><label for="{{ form.movie.id_for_label }}">動画:</label></div>
+                        {{ form.movie }}
+                    </div>
+                    <div class="fieldWrapperfile ">
+                        {{ forms.edit_form.game_uuid.as_p }}
+                        <div class="filelabel"><label for="{{ eidt.game_uuid.id_for_label }}">UUID:</label></div>
+                        {{ edit.game_uuid.edit }}
+                    </div>
+                    <div class="formsend">
+                        <input type="submit" value="送信">
+                    </div>
+                </form>
             </div>
-            <div class="fieldWrapper">
-                {{ form.game_id.errors }}
-                <label for="{{ form.game_id.id_for_label }}">GameID:</label>
-                {{ form.game_id }}
-            </div>
-            <div class="fieldWrapper">
-                {{ form.discription.errors }}
-                <label for="{{ form.discription.id_for_label }}">Discription:</label>
-                {{ form.discription }}
-            </div>
-            <div class="fieldWrapper">
-                {{ form.gamefile.errors }}
-                <label for="{{ form.gamefile.id_for_label }}">gamefile:</label>
-                {{ form.gamefile }}
-                <div id="js-selectFile">
-                    <input type="button" class="original_btn" value="ファイル選択" onClick="$('#gamefile').click();">
-                    <input type="text" id="fake_text_box" value="" size="35" readonly onClick="$('#gamefile').click();">
-                </div>
-            </div>
-            <div class="fieldWrapper">
-                {{ form.panel.errors }}
-                <label for="{{ form.panel.id_for_label }}">panelfile:</label>
-                {{ form.panel }}
-            </div>
-            <div class="fieldWrapper">
-                {{ form.picture_1.errors }}
-                <label for="{{ form.picture_1.id_for_label }}">画像1:</label>
-                {{ form.picture_1 }}
-            </div>
-            <div class="fieldWrapper">
-                {{ form.picture_2.errors }}
-                <label for="{{ form.picture_2.id_for_label }}">画像2:</label>
-                {{ form.picture_2 }}
-            </div>
-            <div class="fieldWrapper">
-                {{ form.picture_2.errors }}
-                <label for="{{ form.picture_2.id_for_label }}">画像3:</label>
-                {{ form.picture_2 }}
-            </div>
-            <div class="fieldWrapper">
-                {{ form.movie.errors }}
-                <label for="{{ form.movie.id_for_label }}">moviefile:</label>
-                {{ form.movie }}
-            </div>
-
-
-            <input type="submit" value="送信">
-        </form>
+        </div>
     </div>
-</div>
+</section>
     {% endblock %}

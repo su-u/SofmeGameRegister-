@@ -45,12 +45,23 @@ class GameInfo(models.Model):
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)
 
+    edit_uuid = models.CharField("UUID", max_length = 40,blank = True)
+
     def __str__(self):
         return str(self.game_uuid)
 
+    def counter_today(self):
+        return Log.objects.filter(access_at=date.today(), post=self)
+ 
+    def counter_today_unique(self):
+        return Log.objects.filter(
+            access_at=date.today(), post=self).values('ip').distinct()
 
-class AccessLog(models.Model):
-    game_uuid = models.UUIDField(primary_key = False)
+class Log(models.Model):
+ 
     ip = models.GenericIPAddressField()
-    created_at = models.DateTimeField(auto_now_add = True)
-    updated_at = models.DateTimeField(auto_now = True)
+    access_at = models.DateTimeField(auto_now_add = True)
+    post = models.ForeignKey(GameInfo)
+ 
+    def __str__(self):
+        return "{0},{1}".format(self.ip, self.access_at)
