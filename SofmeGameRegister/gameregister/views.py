@@ -45,7 +45,7 @@ def GameInfoView(request):
 def complete(request):
     return render(request, "gameregister/complete.html")
 
-def edita(request, editing_id):
+def edit(request, editing_id):
     data = GameInfo.objects.get(pk = editing_id)
     form = GameInfoForm(request.POST, request.FILES, instance=data)
     edit_form = EditForm()
@@ -103,18 +103,18 @@ def lp(request):
         }
     return render(request, "gameregister/lp.html", d)
 
-def edit(request, editing_id):
-    edit_form = EditForm()
-    if request.method == "POST":
-        edit_vali = edit_form.is_valid()
+#def edit(request, editing_id):
+#    edit_form = EditForm()
+#    if request.method == "POST":
+#        edit_vali = edit_form.is_valid()
 
-        if edit_form.is_valid():
-            return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
+#        if edit_form.is_valid():
+#            return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
 
 
-    d = {
-        "title": "登録情報更新",
+#    d = {
+#        "title": "登録情報更新",
 
-        "edit_form": edit_form
-    }
-    return render(request, "gameregister/edit.html", d)
+#        "edit_form": edit_form
+#    }
+#    return render(request, "gameregister/edit.html", d)

@@ -23,7 +23,7 @@ class GameInfoForm(forms.ModelForm):
         }
 
 class EditForm(forms.Form):
-    edit_uuid = EditUuidField()
+    edit_uuid = forms.CharField()
 
     def clean(self):
         clen_data = super().clean()
@@ -31,12 +31,12 @@ class EditForm(forms.Form):
         if(len(uuid) == 0):
             raise forms.ValidationError("未入力")
 
-class EditUuidField(forms.Field):
-    def clean(self, value):
-        if not value:
-            raise forms.ValidationError('Enter at least one uuid')
-        emails = value.split(',')
-        for email in emails:
-            if not is_valid_email(email):
-                raise forms.ValidationError('%s is not a valid e-mail address.' % email)
-        return emails
+#class EditUuidField(forms.Field):
+#    def clean(self, value):
+#        if not value:
+#            raise forms.ValidationError('Enter at least one uuid')
+#        emails = value.split(',')
+#        for email in emails:
+#            if not is_valid_email(email):
+#                raise forms.ValidationError('%s is not a valid e-mail address.' % email)
+#        return emails
