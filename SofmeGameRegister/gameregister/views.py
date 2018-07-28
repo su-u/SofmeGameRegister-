@@ -34,7 +34,6 @@ def GameInfoView(request):
             "picture_2" : "",
             "picture_3" : "",
             "movie" : "",
-            "edit_uuid": "",
             })
     p = {
         "title" : "ゲーム情報登録",
@@ -46,24 +45,32 @@ def complete(request):
     return render(request, "gameregister/complete.html")
 
 def edit(request, editing_id):
+    edit_form = EditForm()
     data = GameInfo.objects.get(pk = editing_id)
     form = GameInfoForm(request.POST, request.FILES, instance=data)
-    edit_form = EditForm()
-    if request.method == "POST":
-        form_vali = form.is_valid()
-        edit_vali = edit_form.is_valid()
+    uuid_error = ""
+    message = ""
 
-        if form_vali and edit_vali:
+    if request.method == "POST":
+        if request.POST.get("edit_uuid") == str(data.game_uuid) and form.is_valid():
             form.save()
             id = GameInfo.objects.get(pk = editing_id)
             writeLog(request, id)
             return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
+        elif request.POST.get("edit_uuid") != str(data.game_uuid):
+            uuid_error = "UUIDが異なります。"
+        else:
+            message = "valid"
     else:
         form = GameInfoForm(initial = {
             "name": data.name, 
             "representative" : data.representative, 
             "game_id" : data.game_id, 
-            "discription" : data.discription, 
+            "discription" : data.discription,
+            "windows" : data.windows,
+            "android" : data.android,
+            "vr" : data.vr,
+            "other" : data.other,
             "gamefile" : data.gamefile,
             "panel" : data.panel,
             "picture_1" : data.picture_1,
@@ -74,8 +81,10 @@ def edit(request, editing_id):
 
     d = {
         "title": "登録情報更新",
-
-        "edit_form": edit_form
+        "message":message,
+        "form":form,
+        "edit_form": edit_form,
+        "uuid_error":uuid_error,
     }
     return render(request, "gameregister/edit.html", d)
 

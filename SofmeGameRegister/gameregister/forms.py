@@ -6,7 +6,7 @@ class GameInfoForm(forms.ModelForm):
     class Meta:
         model = GameInfo
         fields = ("name", "representative", "game_id", "discription", "windows", "android", "vr", "other",
-                 "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie","edit_uuid")
+                 "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
         
         widgets = {
             "name": forms.TextInput(attrs={"placeholder":"ゲーム名"}),
@@ -23,20 +23,4 @@ class GameInfoForm(forms.ModelForm):
         }
 
 class EditForm(forms.Form):
-    edit_uuid = forms.CharField()
-
-    def clean(self):
-        clen_data = super().clean()
-        uuid = clean_data["edit_uuid"]
-        if(len(uuid) == 0):
-            raise forms.ValidationError("未入力")
-
-#class EditUuidField(forms.Field):
-#    def clean(self, value):
-#        if not value:
-#            raise forms.ValidationError('Enter at least one uuid')
-#        emails = value.split(',')
-#        for email in emails:
-#            if not is_valid_email(email):
-#                raise forms.ValidationError('%s is not a valid e-mail address.' % email)
-#        return emails
+    edit_uuid = forms.UUIDField(label = "個別UUID", max_length=40)

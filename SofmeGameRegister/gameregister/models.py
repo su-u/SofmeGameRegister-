@@ -19,12 +19,6 @@ class IntegerRangeField(models.IntegerField):
         return super(IntegerRangeField, self).formfield(**defaults)
 
 class GameInfo(models.Model):
-    def uuid_validation(value):
-        #if len(value) == 0:
-        #    raise ValidationError("未入力")
-        if(len(str(value)) == 0) or value == None:
-            raise ValidationError("a")
-
     game_id = IntegerRangeField("GameID", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text = "100文字以下")
@@ -51,8 +45,6 @@ class GameInfo(models.Model):
 
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)
-
-    edit_uuid = models.CharField("UUID", max_length = 40, help_text = "40文字以下", blank = True, validators = [uuid_validation])
 
     def __str__(self):
         return str(self.game_uuid)
