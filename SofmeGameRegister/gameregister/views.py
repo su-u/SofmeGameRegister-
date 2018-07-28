@@ -59,8 +59,6 @@ def edit(request, editing_id):
             return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
         elif request.POST.get("edit_uuid") != str(data.game_uuid):
             uuid_error = "UUIDが異なります。"
-        else:
-            message = "valid"
     else:
         form = GameInfoForm(initial = {
             "name": data.name, 
