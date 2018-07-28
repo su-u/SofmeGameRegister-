@@ -1,4 +1,4 @@
-﻿{% extends "gameregister/base.html" %}
+{% extends "gameregister/base.html" %}
 {% load static %}
 
 {% block body %}
@@ -16,7 +16,7 @@
                     {{ form.non_field_errors }}
                     <div class="fieldWrapper">
                         {{ form.name.errors }}
-                        <label for="{{ form.name.id_for_label }}">ゲーム名:</label>
+                        <div><label for="{{ form.name.id_for_label }}">ゲーム名:</label></div>
                         {{ form.name }}
                     </div>
                     <div class="fieldWrapper">
@@ -90,4 +90,5 @@
         </div>
     </div>
 </section>
-    {% endblock %}
+
+{% endblock %}

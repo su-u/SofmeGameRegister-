@@ -16,7 +16,7 @@
                     {{ form.non_field_errors }}
                     <div class="fieldWrapper">
                         {{ form.name.errors }}
-                        <label for="{{ form.name.id_for_label }}">ゲーム名:</label>
+                        <div><label for="{{ form.name.id_for_label }}">ゲーム名:</label></div>
                         {{ form.name }}
                     </div>
                     <div class="fieldWrapper">
@@ -77,13 +77,17 @@
                         <div class="filelabel"><label for="{{ form.picture_3.id_for_label }}">画像3:</label></div>
                         {{ form.picture_2 }}
                     </div>
-                    <div class="fieldWrapperfile">
+                    <div class="fieldWrapperfile ">
                         {{ form.movie.errors }}
                         <div class="filelabel"><label for="{{ form.movie.id_for_label }}">動画:</label></div>
                         {{ form.movie }}
                     </div>
                     <div class="fieldWrapper">
-                        <ul class="errorlist"><li>{{uuid_error}}</li></ul>
+                        {% if uuid_error %}
+                            <div class="errorlist">
+                                <li>{{uuid_error}}</li>
+                            </div>
+                        {% endif %}
                         {{edit_form.as_table}}
                     </div>
                     <div class="formsend">
@@ -94,4 +98,5 @@
         </div>
     </div>
 </section>
-    {% endblock %}
+
+{% endblock %}

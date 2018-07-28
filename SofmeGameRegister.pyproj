@@ -65,17 +65,6 @@
     <Folder Include="SofmeGameRegister\SofmeGameRegister" />
   </ItemGroup>
   <ItemGroup>
-    <Interpreter Include="env\">
-      <Id>env</Id>
-      <Version>3.6</Version>
-      <Description>env (Python 3.6 (64-bit))</Description>
-      <InterpreterPath>Scripts\python.exe</InterpreterPath>
-      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
-      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
-      <Architecture>X64</Architecture>
-    </Interpreter>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\index.css" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_24dp.png" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_36dp.png" />
@@ -89,6 +78,18 @@
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\index.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\lp.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.6</Version>
+      <Description>env (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
 </Project>

@@ -19,8 +19,9 @@ body {
     padding-right: 100%;
 }
 
+
 .fieldWrapper input[type=text], .fieldWrapper input[type="number"] {
-    width: 100%;
+    width: 97%;
     padding: 12px 20px;
     margin: 8px 0;
     border: none;
@@ -115,8 +116,9 @@ label > input {
 }
 
 .container-fluid{
-    margin-right: 20px;
-    margin-left: 20px;
+    margin-top: 20pt;
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 .card {

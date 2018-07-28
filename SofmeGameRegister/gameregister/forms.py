@@ -23,4 +23,4 @@ class GameInfoForm(forms.ModelForm):
         }
 
 class EditForm(forms.Form):
-    edit_uuid = forms.UUIDField(label = "個別UUID", max_length=40)
+    edit_uuid = forms.UUIDField(label = "識別UUID", max_length=40)

@@ -19,7 +19,7 @@ def GameInfoView(request):
         ip, is_routable = get_client_ip(request)
         if form.is_valid():
             form.save()
-            data = GameInfo.objects.get(pk = request.POST["game_id"])
+            data = GameInfo.objects.get(pk = request.POST.get("game_id"))
             writeLog(request, data)
             return render(request, "gameregister/complete.html", {"title" : "ゲーム登録完了", "message" : data.game_uuid})
     else:
@@ -27,7 +27,11 @@ def GameInfoView(request):
             "name": "", 
             "representative" : "", 
             "game_id" : "", 
-            "discription" : "", 
+            "discription" : "",
+            "windows" : "",
+            "android" : "",
+            "vr" : "",
+            "other" : "",
             "gamefile" : "",
             "panel" : "",
             "picture_1" : "",
@@ -58,7 +62,7 @@ def edit(request, editing_id):
             writeLog(request, id)
             return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
         elif request.POST.get("edit_uuid") != str(data.game_uuid):
-            uuid_error = "UUIDが異なります。"
+            uuid_error = "UUIDが異なります"
     else:
         form = GameInfoForm(initial = {
             "name": data.name, 
@@ -109,19 +113,3 @@ def lp(request):
         "title": "ランディングページ",
         }
     return render(request, "gameregister/lp.html", d)
-
-#def edit(request, editing_id):
-#    edit_form = EditForm()
-#    if request.method == "POST":
-#        edit_vali = edit_form.is_valid()
-
-#        if edit_form.is_valid():
-#            return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
-
-
-#    d = {
-#        "title": "登録情報更新",
-
-#        "edit_form": edit_form
-#    }
-#    return render(request, "gameregister/edit.html", d)
