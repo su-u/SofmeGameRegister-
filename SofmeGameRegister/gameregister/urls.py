@@ -9,4 +9,5 @@ urlpatterns = [
     url(r"^edit/(?P<editing_id>\d+)/$", views.edit, name="edit"),
     url(r"^index$", views.index, name="index"),
     url(r"^$", views.lp, name = "lp"),
+    url(r"^confirmation$", views.confirmation, name = "Confirmation"),
 ]

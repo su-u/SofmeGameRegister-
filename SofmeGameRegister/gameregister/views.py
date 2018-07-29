@@ -113,3 +113,9 @@ def lp(request):
         "title": "ランディングページ",
         }
     return render(request, "gameregister/lp.html", d)
+
+def confirmation(request):
+    d = {
+        "title": "確認ページ",
+        }
+    return render(request, "gameregister/confirmation.html", d)

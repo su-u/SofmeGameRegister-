@@ -1,0 +1,66 @@
+{% extends "gameregister/base.html" %}
+{% load static %}
+
+{% block body %}
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="header">
+                <h1>{{title}}</h1>
+            </div>
+            <div class="body">
+                <p>{{message|safe}}</p>
+                <h2>提出物について</h2>
+                <ul>
+                    <li>ゲームタイトル</li>
+                    <li>企画者名</li>
+                    <li>GameID</li>
+                    <li>ゲームの説明文</li>
+                    <li>圧縮したゲームディレクトリ</li>
+                    <li>展示用パネル画像(1)</li>
+                    <li>紹介用画像(1～3)</li>
+                    <li>紹介用動画(0～1)</li>
+                </ul>
+                <h2>上記を読んだあと以下のチェックボックスを順番に確認していくとミスが減ると思います</h2>
+                <h3>1.ゲームファイル</h3>
+                <div class="fieldWrapper">
+                    <input id="check_1-1" name="check_1-1" type="checkbox">
+                    <label for="check_1-1">1.1実行できるゲームファイル一式を用意した。</label>
+                </div>
+                <div class="fieldWrapper">
+                    <input id="check_1-2" name="check_1-2" type="checkbox">
+                    <label for="check_1-2">1.2ゲームのルートディレクトリにゲームの実行ファイルがある。</label>
+                </div>
+                <div class="fieldWrapper">
+                    <input id="check_1-3" name="check_1-3" type="checkbox">
+                    <label for="check_1-3">1.3ゲームのルートディレクトリに他の実行ファイルが無い。</label>
+                </div>
+                <div class="fieldWrapper">
+                    <input id="check_1-4" name="check_1-4" type="checkbox">
+                    <label for="check_1-4">1.4ゲームに必要の無いファイルが無い。</label>
+                </div>
+                <div class="fieldWrapper">
+                    <input id="check_1-5" name="check_1-5" type="checkbox">
+                    <label for="check_1-5">1.5ゲーム実行後"ESCキー"でゲームが直ちに終了する。</label>
+                </div>
+                <div class="fieldWrapper">
+                    <input id="check_1-6" name="check_1-6" type="checkbox">
+                    <label for="check_1-6">1.6ゲームに使用した素材、ライブラリなどのライセンスに問題が無い。</label>
+                </div>
+                <div class="fieldWrapper">
+                    <input id="check_1-7" name="check_1-7" type="checkbox">
+                    <label for="check_1-7">1.7ゲームに使用した素材、ライブラリなどのライセンスに問題が無い。</label>
+                </div>
+                <div class="fieldWrapper">
+                    <input id="check_1-8" name="check_1-8" type="checkbox">
+                    <label for="check_1-8">1.8ゲームに使用した素材、ライブラリなどのライセンスに問題が無い。</label>
+                </div>
+            </div>
+            <div class="lp-button">
+                <button class="button" onClick="location.href='/'">戻る</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
