@@ -10,30 +10,28 @@
                 <h1>{{title}}</h1>
             </div>
             <div class="body">
-                <form method="post" action="">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>name</th>
-                                <th>初期提出時間</th>
-                                <th>最終更新時間</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for item in data %}
-                            <tr>
-                                <td>{{ item.game_id }}</td>
-                                <td>{{ item.name }}</td>
-                                <td>{{ item.created_at }}</td>
-                                <td>{{ item.updated_at }}</td>
-                                <td><a href="{% url 'edit' item.game_id %}">更新画面へ</a></td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>名前</th>
+                            <th>初期提出時間</th>
+                            <th>最終更新時間</th>
+                            <th>更新</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            <td>{{ item.game_id }}</td>
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.created_at }}</td>
+                            <td>{{ item.updated_at }}</td>
+                            <td><button class="button index" onClick="location.href='{% url 'edit' item.game_id %}'">更新画面へ</button></td>
+                         </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
