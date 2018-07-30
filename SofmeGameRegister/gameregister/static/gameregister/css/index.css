@@ -187,7 +187,7 @@ tbody tr td {
 
 /*lp*/
 .lp-button{
-    margin-top:50px;
+    margin-top:30px;
     margin-bottom:50px;
 }
 .highlight {
@@ -199,4 +199,10 @@ tbody tr td {
     border-radius: 5px;
     margin: 25px 0;
     padding: 10px;
+}
+.uuid {
+    padding:20px 10px 20px 10px;
+}
+.agree-above {
+    margin-top: 100px;
 }
