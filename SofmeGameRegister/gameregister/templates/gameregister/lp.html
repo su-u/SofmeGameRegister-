@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="header">
-                <h1>{{title}}</h1>
+                <h1 class="page-title">{{title}}</h1>
             </div>
             <div class="body">
                 <p>{{message|safe}}</p>
@@ -32,6 +32,15 @@
                 </ol>
                 <h2>ゲームディレクトリ</h2>
                 <p>ゲームの実行ファイル、その他素材、外部スクリプトをまとめて圧縮して下さい。ゲームのルートディレクトリに実行ファイルを置いて下さい。ゲームのルートディレクトリにはその他の実行ファイルを置かないようにして下さい。</p>
+                <p class="highlight">
+                    例)<br />
+                    root/<br />
+                    ├ img/<br />
+                    ├ movie/<br />
+                    ├ data/<br />
+                    │　└ sub.exe<br />
+                    └ game.exe<br />
+                </p>
                 <h2>提出について</h2>
                 <p>提出後自動的にUUIDが発行されます。今後更新したい場合に必要になるので各個人で保存しておいて下さい。そのままコピーして保存してもらっても構いません。外部には漏らさないように注意して下さい。</p>
                 <h2>更新について</h2>
@@ -45,7 +54,7 @@
                 <p>分かりやすいようにチェックボックス式の確認ページを作成しました。不安がある方は利用して下さい。</p>
                 <button class="button" onClick="location.href='/confirmation'">確認ページへ</button>
             </div>
-            <h2>確認後、次のボタンを押して下さい。</h2>
+            <h2>すべて確認後、次のボタンを押して下さい。</h2>
             <div class="lp-button">
                 <button class="button" onClick="location.href='/register'">提出</button>
                 <button class="button" onClick="location.href='/index'">更新</button>

@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="header">
-                <h1>{{title}}</h1>
+                <h1 class="page-title">{{title}}</h1>
             </div>
             <div class="body">
                 <table>
@@ -27,11 +27,12 @@
                             <td>{{ item.name }}</td>
                             <td>{{ item.created_at }}</td>
                             <td>{{ item.updated_at }}</td>
-                            <td><button class="button index" onClick="location.href='{% url 'edit' item.game_id %}'">更新画面へ</button></td>
-                         </tr>
+                            <td><button class="button small-button" onClick="location.href='{% url 'edit' item.game_id %}'">更新画面へ</button></td>
+                        </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+            <button class="button small-button back-button" onClick="location.href='/'">戻る</button>
             </div>
         </div>
     </div>
