@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="card">
             <div class="header">
-                <h1 class="page-title">{{title}}</h1>
+                <h1 class="page-title">{{title|safe}}</h1>
             </div>
             <div class="body">
                 <p>{{message|safe}}</p>
@@ -46,6 +46,10 @@
                 <div class="fieldWrapper">
                     <input id="check_1-6" name="check_1-6" type="checkbox">
                     <label for="check_1-6">1.6ゲームに使用した素材、ライブラリなどのライセンスに問題が無い。</label>
+                </div>
+                <div class="fieldWrapper">
+                    <input id="check_1-7" name="check_1-7" type="checkbox">
+                    <label for="check_1-7">1.7ファイル一式をzip形式で圧縮してある。</label>
                 </div>
 
                 <h3>2.ゲーム情報</h3>
