@@ -55,22 +55,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="standard-td">画像サイズ</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">画像解像</td>
+                            <td class="standard-td">640x640以下</td>
                         </tr>
                         <tr>
                             <td class="standard-td">ファイルフォーマット</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">PNG, JPG</td>
                         </tr>
                         <tr>
                             <td class="standard-td">ファイルサイズ</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">10MB以下</td>
                         </tr>
                         <tr>
                             <td class="standard-td">アスペクト比</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">1:1</td>
                         </tr>
-
                     </tbody>
                 </table>
 
@@ -84,22 +83,21 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="standard-td">画像サイズ</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">画像解像度</td>
+                            <td class="standard-td">1280x720以下</td>
                         </tr>
                         <tr>
                             <td class="standard-td">ファイルフォーマット</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">PNG, JPG</td>
                         </tr>
                         <tr>
                             <td class="standard-td">ファイルサイズ</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">10MB以下</td>
                         </tr>
                         <tr>
                             <td class="standard-td">アスペクト比</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">4:3 or 16:9</td>
                         </tr>
-
                     </tbody>
                 </table>
 
@@ -113,30 +111,39 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="standard-td">画像サイズ</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">動画解像度</td>
+                            <td class="standard-td">1280x720以下</td>
                         </tr>
                         <tr>
                             <td class="standard-td">ファイルフォーマット</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">mp4, avi</td>
+                        </tr>
+                        <tr>
+                            <td class="standard-td">ファイルコーデック</td>
+                            <td class="standard-td">H.265/HEVC, H.264/MPEG-4 AVC</td>
                         </tr>
                         <tr>
                             <td class="standard-td">ファイルサイズ</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">100MB以下</td>
                         </tr>
                         <tr>
                             <td class="standard-td">アスペクト比</td>
-                            <td class="standard-td"></td>
+                            <td class="standard-td">4:3 or 16:9</td>
                         </tr>
-
                     </tbody>
                 </table>
 
+                <h2>推奨行為</h2>
+                <ul>
+                    <li>画像のファイルサイズをできるけ下げる。</li>
+                    <li>使用しないデータなどはできるだけ減らし、ゲームファイルサイズを下げる。</li>
+                </ul>
 
 
                 <h2>提出について</h2>
 
                 <p>提出後自動的にUUIDが発行されます。今後更新したい場合に必要になるので各個人で保存しておいて下さい。そのままコピーして保存してもらっても構いません。外部には漏らさないように注意して下さい。</p>
+                <p>忘れた場合は管理者まで連絡して下さい。</p>
 
                 <h2>更新について</h2>
                 <p>提出時に発行されたUUIDが必要になります。他人に勝手に更新されるのを防ぐ為です。入力時に無駄なスペースなどが無いか注意して下さい。発行時に表示されるハイフンも入力対象です。</p>
@@ -146,12 +153,26 @@
                 </p>
                 <p>更新ボタンを押すと、現在提出されている一覧が表示されます。その中から自分のゲームを探し、"更新画面へ"をクリックして下さい。</p>
 
+                <h2>提出エラー</h2>
+                <p>提出物にエラーがある場合提出することができません。その場合、エラーのある項目の上部に赤文字でエラー内容が表示されます。</p>
+                <p>解決して提出するようにしてください。内容が不明な場合、連絡するようにしてください。</p>
+
+                <div class="highlight">
+                例)
+                <div class="errorlist">
+                <ul>
+                <li>UUIDが異なります</li>
+                </ul>
+                </div>
+                </div>
+
                 <h2>提出期限</h2>
                 <p>提出期限は厳守して下さい。また期限間際は混雑が予想されるので、できるだけ余裕をもって提出して下さい。</p>
 
                 <h2>確認ページ</h2>
                 <p>確認いやすいようにチェックボックス式の確認ページを作成しました。不安がある方は利用して下さい。</p>
-                <button class="button" onClick="location.href='/confirmation'">確認ページへ</button>
+                <p>別タブで開くので随時このページを確認しながら使用してください。</p>
+                <button class="button" onClick="window.open('/confirmation','_blank')">確認ページへ</button>
 
                 <h2 class="agree-above">すべて確認後、次のボタンを押して下さい。</h2>
                 <div class="lp-button">
