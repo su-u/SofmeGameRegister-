@@ -1,0 +1,5 @@
+Django==1.8
+django-colorfield==0.1.15
+django-ipware==2.1.0
+pip==9.0.3
+setuptools==39.0.1
