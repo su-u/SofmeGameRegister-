@@ -11,9 +11,12 @@ FILE_PATH = ""
 # Create your models here.
 
 class Tag(models.Model):
-    color = ColorField(default='#FF0000')
-    tag_id = models.IntegerField()
-    tag_name = models.CharField(max_length=100)
+    tag_id = models.AutoField("TagID", primary_key=True)
+    tag_name = models.CharField("TagName", max_length=100)
+    color = ColorField("TagColor", default='#FFFFFF')
+
+    def __str__(self):
+        return str(self.tag_name)
 
 class IntegerRangeField(models.IntegerField):
     def __init__(self, verbose_name=None, name=None, min_value=None, max_value=None, **kwargs):
@@ -53,7 +56,8 @@ class GameInfo(models.Model):
     updated_at = models.DateTimeField("更新時", auto_now = True)
 
     is_view = models.BooleanField(default = True, blank = True)
-    tag = models.ManyToManyField(Tag)
+    tag = models.ManyToManyField(Tag, blank = True, null = True)
+    #tag = models.ForeignKey(Tag, blank = True, null = True)
 
     def __str__(self):
         return str(self.game_uuid)
