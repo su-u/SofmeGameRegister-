@@ -38,6 +38,7 @@ def GameInfoView(request):
             "picture_2" : "",
             "picture_3" : "",
             "movie" : "",
+            "is_view":"",
             })
     p = {
         "title" : "ゲーム情報登録",
@@ -79,6 +80,7 @@ def edit(request, editing_id):
             "picture_2" : data.picture_2,
             "picture_3" : data.picture_3,
             "movie" : data.movie,
+            "is_view":data.is_view,
             })
 
     d = {

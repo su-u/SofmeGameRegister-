@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import GameInfo, Log
+from .models import GameInfo, Log, Tag
 
 
 # Register your models here.
@@ -13,3 +13,4 @@ class LogAdmin(admin.ModelAdmin):
 
 admin.site.register(GameInfo,GameInfoAdmin)
 admin.site.register(Log,LogAdmin)
+admin.site.register(Tag)

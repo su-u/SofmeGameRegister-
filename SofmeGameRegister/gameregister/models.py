@@ -3,11 +3,17 @@ from datetime import datetime
 from django.contrib import admin
 from django.core.validators import ValidationError
 import uuid
+from colorfield.fields import ColorField
 
 #FILE_PATH = "gameregister/static/gameregister"
 FILE_PATH = ""
 
 # Create your models here.
+
+class Tag(models.Model):
+    color = ColorField(default='#FF0000')
+    tag_id = models.IntegerField()
+    tag_name = models.CharField(max_length=100)
 
 class IntegerRangeField(models.IntegerField):
     def __init__(self, verbose_name=None, name=None, min_value=None, max_value=None, **kwargs):
@@ -45,6 +51,9 @@ class GameInfo(models.Model):
 
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)
+
+    is_view = models.BooleanField(default = True, blank = True)
+    tag = models.ManyToManyField(Tag)
 
     def __str__(self):
         return str(self.game_uuid)
