@@ -38,14 +38,18 @@ class GameInfo(models.Model):
     vr = models.BooleanField("VR", blank = True)
     other = models.BooleanField("その他独自筐体", blank = True)
 
+    is_mouse = models.BooleanField("マウス", blank = True)
+    is_gamepad = models.BooleanField("ゲームパッド", blank = True)
+    is_keyboard = models.BooleanField("キーボード", blank = True)
 
     
     game_uuid = models.UUIDField(primary_key = False, default = uuid.uuid4, editable=False)
 
     gamefile = models.FileField(upload_to = FILE_PATH + "gamefile", blank = True)
+    gamefile_path = models.FilePathField(blank = True, null = True)
 
     panel = models.FileField(upload_to = FILE_PATH + "panel", blank = True)
-
+    
     picture_1 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
     picture_2 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
     picture_3 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
@@ -59,6 +63,8 @@ class GameInfo(models.Model):
     tag = models.ManyToManyField(Tag, blank = True, null = True)
     #tag = models.ForeignKey(Tag, blank = True, null = True)
 
+
+
     def __str__(self):
         return str(self.game_uuid)
    
@@ -66,8 +72,9 @@ class GameInfo(models.Model):
 
 class Log(models.Model):
  
-    ip = models.GenericIPAddressField()
-    access_at = models.DateTimeField(auto_now_add = True)
+    ip = models.GenericIPAddressField("IPアドレス")
+    access_at = models.DateTimeField("アクセス時間", auto_now_add = True)
+    access_type = models.CharField("アクセスタイプ", max_length = 100)
     post = models.ForeignKey(GameInfo)
  
     def __str__(self):
