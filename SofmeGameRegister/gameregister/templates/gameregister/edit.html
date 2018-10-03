@@ -49,6 +49,18 @@
                         {{ form.other }}
                         <label for="{{ form.other.id_for_label }}">その他・独自筐体</label>
                     </div>
+                    <div class="fieldWrapper">
+                        <div>操作端末:</div>
+                        {{ form.is_mouse.errors }}
+                        {{ form.is_mouse }}
+                        <label for="{{ form.is_mouse.id_for_label }}">マウス</label>
+                        {{ form.is_gamepad.errors }}
+                        {{ form.is_gamepad }}
+                        <label for="{{ form.is_gamepad.id_for_label }}">ゲームパッド</label>
+                        {{ form.is_keyboard.errors }}
+                        {{ form.is_keyboard }}
+                        <label for="{{ form.is_keyboard.id_for_label }}">キーボード</label>
+                    </div>
                     <div class="header">
                         <h1>ファイル登録</h1>
                     </div>
@@ -84,9 +96,9 @@
                     </div>
                     <div class="fieldWrapper">
                         {% if uuid_error %}
-                            <div class="errorlist">
-                                <li>{{uuid_error}}</li>
-                            </div>
+                        <div class="errorlist">
+                            <li>{{uuid_error}}</li>
+                        </div>
                         {% endif %}
                         {{edit_form.as_table}}
                     </div>
