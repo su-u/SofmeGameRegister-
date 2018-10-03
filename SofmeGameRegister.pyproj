@@ -65,12 +65,14 @@
     <Folder Include="SofmeGameRegister\SofmeGameRegister" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="requirements.txt" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\index.css" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_24dp.png" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_36dp.png" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\jquery-3.3.1.js" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\base.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\complete.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\confirmation.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\edit.html">
       <SubType>Code</SubType>
     </Content>

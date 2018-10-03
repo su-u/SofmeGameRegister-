@@ -4,7 +4,7 @@ from .models import GameInfo, Log, Tag
 
 # Register your models here.
 class TagInline(admin.TabularInline):
-    model = GameInfo.tag.through
+    model = GameInfo.tag.through 
 
 
 class GameInfoAdmin(admin.ModelAdmin):
