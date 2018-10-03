@@ -9,13 +9,14 @@ class TagInline(admin.TabularInline):
 
 class GameInfoAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at","game_uuid")
-    list_display = ("game_id", "name","representative", "updated_at")
+    list_display = ("game_id", "name","representative", "updated_at", "game_uuid")
     inlines = [TagInline]
     exclude = ('tag',)
 
 class LogAdmin(admin.ModelAdmin):
     #readonly_fields = ("ip")
-    list_display = ("access_at", "ip")
+    readonly_fields = ("ip", "access_at", "access_type", "post",)
+    list_display = ("access_at", "ip", "access_type")
 
 class TagAdmin(admin.ModelAdmin):
     readonly_fields = ("tag_id",)

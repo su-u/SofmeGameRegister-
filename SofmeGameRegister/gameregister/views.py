@@ -9,6 +9,7 @@ from django.template.context_processors import csrf
 from django.views.generic import CreateView, UpdateView
 import logging
 from ipware import get_client_ip
+from enum import Enum
 
 from .models import GameInfo, Log
 from .forms import GameInfoForm, EditForm
@@ -20,7 +21,7 @@ def GameInfoView(request):
         if form.is_valid():
             form.save()
             data = GameInfo.objects.get(pk = request.POST.get("game_id"))
-            writeLog(request, data)
+            writeLog(request, data, LogType.NEW)
             return render(request, "gameregister/complete.html", {"title" : "ゲーム登録完了", "message" : data.game_uuid})
     else:
         form = GameInfoForm(initial = {
@@ -39,6 +40,9 @@ def GameInfoView(request):
             "picture_3" : "",
             "movie" : "",
             "is_view":"",
+            "is_mouse":"",
+            "is_gamepad":"",
+            "is_keyboard":"",
             })
     p = {
         "title" : "ゲーム情報登録",
@@ -60,7 +64,7 @@ def edit(request, editing_id):
         if request.POST.get("edit_uuid") == str(data.game_uuid) and form.is_valid():
             form.save()
             id = GameInfo.objects.get(pk = editing_id)
-            writeLog(request, id)
+            writeLog(request, id, LogType.UPDATE)
             return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
         elif request.POST.get("edit_uuid") != str(data.game_uuid):
             uuid_error = "UUIDが異なります"
@@ -81,6 +85,9 @@ def edit(request, editing_id):
             "picture_3" : data.picture_3,
             "movie" : data.movie,
             "is_view":data.is_view,
+            "is_mouse":data.is_mouse,
+            "is_gamepad":data.is_gamepad,
+            "is_keyboard":data.is_keyboard,
             })
 
     d = {
@@ -92,13 +99,13 @@ def edit(request, editing_id):
     }
     return render(request, "gameregister/edit.html", d)
 
-def writeLog(request, id):
+def writeLog(request, id, type):
     x_forwarded_for = request.META.get("HTTP_X_FORWARDED_FOR")
     if x_forwarded_for:
         ip = x_forwarded_for.split(",")[0]
     else:
         ip = request.META.get("REMOTE_ADDR")
-    log = Log(ip = ip, post = id)
+    log = Log(ip = ip, post = id, access_type = LogType.string(type))
     log.save()
 
 def index(request):
@@ -121,3 +128,13 @@ def confirmation(request):
         "title": "確認ページ",
         }
     return render(request, "gameregister/confirmation.html", d)
+
+class LogType(Enum):
+    NEW = 1
+    UPDATE = 2
+
+    def string(type):
+        if type == LogType.NEW:
+            return "NEW"
+        elif type == LogType.UPDATE:
+            return "UPDATE"
