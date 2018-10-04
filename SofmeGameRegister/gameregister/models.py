@@ -48,7 +48,7 @@ class GameInfo(models.Model):
     gamefile = models.FileField(upload_to = FILE_PATH + "gamefile", blank = True)
     gamefile_path = models.FilePathField(blank = True, null = True)
 
-    panel = models.FileField(upload_to = FILE_PATH + "panel", blank = True)
+    panel = models.FileField(upload_to = "panel", blank = True)
     
     picture_1 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
     picture_2 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)

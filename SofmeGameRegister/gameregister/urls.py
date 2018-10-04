@@ -12,3 +12,4 @@ urlpatterns = [
     url(r"^confirmation$", views.confirmation, name = "Confirmation"),
     url(r"^adminindex$", views.admin_index, name = "Admin-index"),
 ]
+

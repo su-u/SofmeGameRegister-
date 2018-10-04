@@ -107,4 +107,7 @@ STATIC_URL = '/static/'
 
 
 
-MEDIA_URL = '/static/gameregister/file/'
+#MEDIA_URL = '/static/gameregister/file/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "gameregister/static/gameregister/file/")
+MEDIA_URL = "/static/gameregister/file/"
