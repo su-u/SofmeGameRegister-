@@ -32,6 +32,9 @@
     <Compile Include="SofmeGameRegister\gameregister\views.py" />
     <Compile Include="SofmeGameRegister\gameregister\__init__.py" />
     <Compile Include="SofmeGameRegister\manage.py" />
+    <Compile Include="SofmeGameRegister\gameregister\logtype.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SofmeGameRegister\SofmeGameRegister\admin.py">
       <SubType>Code</SubType>
     </Compile>
@@ -70,6 +73,7 @@
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_24dp.png" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_36dp.png" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\jquery-3.3.1.js" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\admin-index.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\base.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\complete.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\confirmation.html" />
