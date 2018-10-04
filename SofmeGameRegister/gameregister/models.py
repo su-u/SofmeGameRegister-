@@ -27,6 +27,19 @@ class IntegerRangeField(models.IntegerField):
         defaults.update(kwargs)
         return super(IntegerRangeField, self).formfield(**defaults)
 
+
+def upload_to_gamefile(instance, filename):
+    return "{id}/gamefile/{file}".format(id=instance.game_id, file=filename)
+
+def upload_to_panel(instance, filename):
+    return "{id}/panel/{file}".format(id=instance.game_id, file=filename)
+
+def upload_to_pictures(instance, filename):
+    return "{id}/picturese/{file}".format(id=instance.game_id, file=filename)
+
+def upload_to_movie(instance, filename):
+    return "{id}/movie/{file}".format(id=instance.game_id, file=filename)
+
 class GameInfo(models.Model):
     game_id = IntegerRangeField("GameID", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
@@ -45,16 +58,16 @@ class GameInfo(models.Model):
     
     game_uuid = models.UUIDField(primary_key = False, default = uuid.uuid4, editable=False)
 
-    gamefile = models.FileField(upload_to = FILE_PATH + "gamefile", blank = True)
+    gamefile = models.FileField(upload_to = upload_to_gamefile, blank = True)
     gamefile_path = models.FilePathField(blank = True, null = True)
 
-    panel = models.FileField(upload_to = "panel", blank = True)
+    panel = models.FileField(upload_to = upload_to_panel, blank = True)
     
-    picture_1 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
-    picture_2 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
-    picture_3 = models.FileField(upload_to = FILE_PATH + "picture", blank = True)
+    picture_1 = models.FileField(upload_to = upload_to_pictures, blank = True)
+    picture_2 = models.FileField(upload_to = upload_to_pictures, blank = True)
+    picture_3 = models.FileField(upload_to = upload_to_pictures, blank = True)
 
-    movie = models.FileField(upload_to = FILE_PATH + "movie", blank = True)
+    movie = models.FileField(upload_to = upload_to_movie, blank = True)
 
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)
