@@ -74,6 +74,11 @@
                         {{ form.panel.errors }}
                         <div class="filelabel"><label for="{{ form.panel.id_for_label }}">パネルファイル:</label></div>
                         {{ form.panel }}
+
+                        {% if file.panel != "" %}
+                        <div><img src="{{file.panel.url|safe}}" /></div>
+                        {% endif %}
+
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.picture_1.errors }}

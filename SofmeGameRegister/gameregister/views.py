@@ -14,6 +14,8 @@ from .logtype import LogType
 from .models import GameInfo, Log
 from .forms import GameInfoForm, EditForm
 
+BASE_URL = "/static/gameregister/file/"
+
 def GameInfoView(request):
     form = GameInfoForm(request.POST or None, request.FILES)
     if request.method == "POST":
@@ -89,6 +91,9 @@ def edit(request, editing_id):
             "is_gamepad":data.is_gamepad,
             "is_keyboard":data.is_keyboard,
             })
+        static_file = {
+            "panel":data.panel,
+            }
 
     d = {
         "title": "登録情報更新",
@@ -96,6 +101,7 @@ def edit(request, editing_id):
         "form":form,
         "edit_form": edit_form,
         "uuid_error":uuid_error,
+        "file":static_file,
     }
     return render(request, "gameregister/edit.html", d)
 
