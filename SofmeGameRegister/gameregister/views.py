@@ -9,7 +9,7 @@ from django.template.context_processors import csrf
 from django.views.generic import CreateView, UpdateView
 import logging
 from ipware import get_client_ip
-from enum import Enum
+from .logtype import LogType
 
 from .models import GameInfo, Log
 from .forms import GameInfoForm, EditForm
@@ -129,12 +129,11 @@ def confirmation(request):
         }
     return render(request, "gameregister/confirmation.html", d)
 
-class LogType(Enum):
-    NEW = 1
-    UPDATE = 2
+def admin_index(request):
+    data = GameInfo.objects.all()
+    d = {
+        "title": "提出一覧",
+        "data": data,
+        }
 
-    def string(type):
-        if type == LogType.NEW:
-            return "NEW"
-        elif type == LogType.UPDATE:
-            return "UPDATE"
+    return render(request, "gameregister/admin-index.html", d)
