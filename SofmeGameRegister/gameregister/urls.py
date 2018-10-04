@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from gameregister import views
-
+from django.contrib import admin
 
 
 urlpatterns = [
