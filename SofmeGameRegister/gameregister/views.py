@@ -91,10 +91,9 @@ def edit(request, editing_id):
             "is_gamepad":data.is_gamepad,
             "is_keyboard":data.is_keyboard,
             })
-        static_file = {
-            "panel":data.panel,
-            }
-
+    static_file = {
+        "panel":data.panel,
+        }
     d = {
         "title": "登録情報更新",
         "message":message,
@@ -103,6 +102,7 @@ def edit(request, editing_id):
         "uuid_error":uuid_error,
         "file":static_file,
     }
+
     return render(request, "gameregister/edit.html", d)
 
 def writeLog(request, id, type):
