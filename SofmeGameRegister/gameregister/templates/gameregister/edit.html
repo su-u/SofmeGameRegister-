@@ -70,36 +70,60 @@
                         <div class="filelabel"><label for="{{ form.gamefile.id_for_label }}">ゲームファイル:</label></div>
                         {{ form.gamefile }}
                     </div>
-                    <div class="fieldWrapperfile">
-                        {{ form.panel.errors }}
-                        <div class="filelabel"><label for="{{ form.panel.id_for_label }}">パネルファイル:</label></div>
-                        {{ form.panel }}
+                    <div class="fieldWrapperfile file-img">
+                        <div class="form">
+                            {{ form.panel.errors }}
+                            <div class="filelabel"><label for="{{ form.panel.id_for_label }}">パネルファイル:</label></div>
+                            {{ form.panel }}
+                        </div>
 
                         {% if file.panel != "" %}
-                        <div><img src="{{file.panel.url|safe}}" /></div>
+                        <div class="img-preview"><img src="{{file.panel.url|safe}}" /></div>
+                        {% endif %}
+
+                    </div>
+                    <div class="fieldWrapperfile file-img">
+                        <div class="form">
+                            {{ form.picture_1.errors }}
+                            <div class="filelabel"><label for="{{ form.picture_1.id_for_label }}">画像1:</label></div>
+                            {{ form.picture_1 }}
+                        </div>
+
+                        {% if file.picture_1 != "" %}
+                        <div class="img-preview"><img src="{{file.picture_1.url|safe}}" /></div>
+                        {% endif %}
+
+                    </div>
+                    <div class="fieldWrapperfile file-img">
+                        <div class="form">
+                            {{ form.picture_2.errors }}
+                            <div class="filelabel"> <label for="{{ form.picture_2.id_for_label }}">画像2:</label></div>
+                            {{ form.picture_2 }}
+                        </div>
+
+                        {% if file.picture_2 != "" %}
+                        <div class="img-preview"><img src="{{file.picture_2.url|safe}}" /></div>
+                        {% endif %}
+
+                    </div>
+                    <div class="fieldWrapperfile file-img">
+                        <div class="form">
+                            {{ form.picture_3.errors }}
+                            <div class="filelabel"><label for="{{ form.picture_3.id_for_label }}">画像3:</label></div>
+                            {{ form.picture_3 }}
+                        </div>
+
+                        {% if file.picture_3 != "" %}
+                        <div class="img-preview"><img src="{{file.picture_3.url|safe}}" /></div>
                         {% endif %}
 
                     </div>
                     <div class="fieldWrapperfile">
-                        {{ form.picture_1.errors }}
-                        <div class="filelabel"><label for="{{ form.picture_1.id_for_label }}">画像1:</label></div>
-                        {{ form.picture_1 }}
-                    </div>
-                    <div class="fieldWrapperfile">
-                        {{ form.picture_2.errors }}
-                        <div class="filelabel"> <label for="{{ form.picture_2.id_for_label }}">画像2:</label></div>
-                        {{ form.picture_2 }}
-                    </div>
-                    <div class="fieldWrapperfile">
-                        {{ form.picture_2.errors }}
-                        <div class="filelabel"><label for="{{ form.picture_3.id_for_label }}">画像3:</label></div>
-                        {{ form.picture_2 }}
-                    </div>
-                    <div class="fieldWrapperfile ">
                         {{ form.movie.errors }}
                         <div class="filelabel"><label for="{{ form.movie.id_for_label }}">動画:</label></div>
                         {{ form.movie }}
                     </div>
+
                     <div class="fieldWrapper">
                         {% if uuid_error %}
                         <div class="errorlist">
