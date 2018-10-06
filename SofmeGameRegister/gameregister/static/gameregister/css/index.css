@@ -2,6 +2,25 @@ body {
     font-family: 'Noto Sans Japanese';
     background-color:#c1c1c1;
     font-size:19px;
+    margin:0;
+}
+
+.top-header {
+    top: 0;
+    width: 100%;
+    background-color: #202124;
+    height: 80px;
+    color:white;
+}
+.top-header .title {
+    padding-left: 30px;
+    padding-top:20px;
+    font-weight:600;
+    font-size:30px;
+}
+.title a{
+    color:white;
+    text-decoration:none;
 }
 
 .errorlist {
