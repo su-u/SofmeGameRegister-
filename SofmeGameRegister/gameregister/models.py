@@ -35,7 +35,7 @@ def upload_to_panel(instance, filename):
     return "{id}/panel/{file}".format(id=instance.game_id, file=filename)
 
 def upload_to_pictures(instance, filename):
-    return "{id}/picturese/{file}".format(id=instance.game_id, file=filename)
+    return "{id}/pictures/{file}".format(id=instance.game_id, file=filename)
 
 def upload_to_movie(instance, filename):
     return "{id}/movie/{file}".format(id=instance.game_id, file=filename)
