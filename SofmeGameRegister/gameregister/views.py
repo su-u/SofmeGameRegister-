@@ -93,6 +93,10 @@ def edit(request, editing_id):
             })
     static_file = {
         "panel":data.panel,
+        "picture_1":data.picture_1,
+        "picture_2":data.picture_2,
+        "picture_3":data.picture_3,
+        "movie":data.movie,
         }
     d = {
         "title": "登録情報更新",
