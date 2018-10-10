@@ -11,7 +11,7 @@
                 <h1 class="page-title">{{title|safe}}</h1>
             </div>
             <div class="body">
-                <button class="button small-button back-button" onClick="location.href='/index'">戻る</button>
+                <button class="button small-button back-button" onClick="location.href='/'">戻る</button>
                 <form action="" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.non_field_errors }}
