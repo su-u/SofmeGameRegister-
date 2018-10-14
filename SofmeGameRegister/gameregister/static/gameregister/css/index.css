@@ -87,6 +87,23 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+    .fieldWrapper select {
+        border: none;
+        border-bottom: 1px solid #ccc;
+        outline: none;
+        height: 3rem;
+        width: 200px;
+        line-height: 3rem;
+        font-size:20px;
+        /*margin: 0 0 8px 0;
+    padding: 0;*/
+        display: block;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        z-index: 1
+    }
 
 .fieldWrapper [type="checkbox"] + label {
     margin:0 20px 0 0;
