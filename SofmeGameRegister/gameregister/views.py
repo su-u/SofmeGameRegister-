@@ -45,11 +45,13 @@ def GameInfoView(request):
             "is_mouse":"",
             "is_gamepad":"",
             "is_keyboard":"",
+            "tag_list":"",
             })
     p = {
         "title" : "ゲーム情報登録",
         "form" : form,
         }
+    writeLog(request, "" , LogType.ACCESS_REGISTER)
     return render(request, "gameregister/gameregisterform.html", p )
 
 def complete(request):
@@ -63,13 +65,16 @@ def edit(request, editing_id):
     message = ""
 
     if request.method == "POST":
-        if request.POST.get("edit_uuid") == str(data.game_uuid) and form.is_valid():
-            form.save()
-            id = GameInfo.objects.get(pk = editing_id)
-            writeLog(request, id, LogType.UPDATE)
-            return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
+        if request.POST.get("edit_uuid") == str(data.game_uuid):
+            if form.is_valid():
+                form.save()
+                id = GameInfo.objects.get(pk = editing_id)
+                writeLog(request, id, LogType.UPDATE)
+
+                return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
         elif request.POST.get("edit_uuid") != str(data.game_uuid):
             uuid_error = "UUIDが異なります"
+            writeLog(request, "" , LogType.FAILED_UUID)
     else:
         form = GameInfoForm(initial = {
             "name": data.name, 
@@ -90,6 +95,7 @@ def edit(request, editing_id):
             "is_mouse":data.is_mouse,
             "is_gamepad":data.is_gamepad,
             "is_keyboard":data.is_keyboard,
+            "tag_list":data.tag_list,
             })
     static_file = {
         "panel":data.panel,
@@ -106,6 +112,7 @@ def edit(request, editing_id):
         "uuid_error":uuid_error,
         "file":static_file,
     }
+    writeLog(request, "" , LogType.ACCESS_EDIT)
 
     return render(request, "gameregister/edit.html", d)
 
@@ -115,7 +122,11 @@ def writeLog(request, id, type):
         ip = x_forwarded_for.split(",")[0]
     else:
         ip = request.META.get("REMOTE_ADDR")
-    log = Log(ip = ip, post = id, access_type = LogType.string(type))
+
+    if id == "":
+        log = Log(ip = ip, access_type = LogType.string(type))
+    else:
+        log = Log(ip = ip, post = id, access_type = LogType.string(type))
     log.save()
 
 def index(request):
@@ -124,19 +135,21 @@ def index(request):
         "title": "提出一覧",
         "data": data,
         }
-
+    writeLog(request, "" , LogType.ACCESS_INDEX)
     return render(request, "gameregister/index.html", d)
 
 def lp(request):
     d = {
         "title": "ランディングページ",
         }
+    writeLog(request, "" , LogType.ACCESS_LP)
     return render(request, "gameregister/lp.html", d)
 
 def confirmation(request):
     d = {
         "title": "確認ページ",
         }
+    writeLog(request, "" , LogType.ACCESS_CONFIRMATION)
     return render(request, "gameregister/confirmation.html", d)
 
 def admin_index(request):
@@ -145,5 +158,5 @@ def admin_index(request):
         "title": "提出一覧",
         "data": data,
         }
-
+    writeLog(request, "" , LogType.ACCESS_ADMIN_INDEX)
     return render(request, "gameregister/admin-index.html", d)

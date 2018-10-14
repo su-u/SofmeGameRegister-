@@ -3,19 +3,19 @@ from .models import GameInfo, Log, Tag
 
 
 # Register your models here.
-class TagInline(admin.TabularInline):
-    model = GameInfo.tag.through 
+#class TagInline(admin.TabularInline):
+#    model = GameInfo.tag.through 
 
 
 class GameInfoAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at","game_uuid")
     list_display = ("game_id", "name","representative", "updated_at", "game_uuid")
-    inlines = [TagInline]
+    #inlines = [TagInline]
     exclude = ('tag',)
 
 class LogAdmin(admin.ModelAdmin):
     #readonly_fields = ("ip")
-    readonly_fields = ("ip", "access_at", "access_type", "post",)
+    readonly_fields = ("ip", "access_at", "access_type",)
     list_display = ("access_at", "ip", "access_type")
 
 class TagAdmin(admin.ModelAdmin):

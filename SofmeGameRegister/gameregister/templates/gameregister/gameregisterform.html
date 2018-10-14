@@ -62,6 +62,11 @@
                         {{ form.is_keyboard }}
                         <label for="{{ form.is_keyboard.id_for_label }}">キーボード</label>
                     </div>
+                    <div class="fieldWrapper">
+                        <div>タグ:</div>
+                        {{ form.tag_list.errors }}
+                        {{ form.tag_list }}
+                    </div>
                     <div class="header">
                         <h1>ファイル登録</h1>
                     </div>

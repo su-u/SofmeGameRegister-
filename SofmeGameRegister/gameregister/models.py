@@ -73,10 +73,8 @@ class GameInfo(models.Model):
     updated_at = models.DateTimeField("更新時", auto_now = True)
 
     is_view = models.BooleanField(default = True, blank = True)
-    tag = models.ManyToManyField(Tag, blank = True, null = True)
-    #tag = models.ForeignKey(Tag, blank = True, null = True)
 
-
+    tag_list = models.ForeignKey(Tag)
 
     def __str__(self):
         return str(self.game_uuid)
@@ -88,7 +86,7 @@ class Log(models.Model):
     ip = models.GenericIPAddressField("IPアドレス")
     access_at = models.DateTimeField("アクセス時間", auto_now_add = True)
     access_type = models.CharField("アクセスタイプ", max_length = 100)
-    post = models.ForeignKey(GameInfo)
+    post = models.ForeignKey(GameInfo, blank = True, null = True)
  
     def __str__(self):
         return "{0},{1}".format(self.ip, self.access_at)
