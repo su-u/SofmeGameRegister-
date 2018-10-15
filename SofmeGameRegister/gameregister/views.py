@@ -12,7 +12,7 @@ from ipware import get_client_ip
 from .logtype import LogType
 
 from .models import GameInfo, Log
-from .forms import GameInfoForm, EditForm
+from .forms import GameInfoForm, EditForm, GameInfoFormEdit
 
 BASE_URL = "/static/gameregister/file/"
 
@@ -60,7 +60,7 @@ def complete(request):
 def edit(request, editing_id):
     edit_form = EditForm()
     data = GameInfo.objects.get(pk = editing_id)
-    form = GameInfoForm(request.POST, request.FILES, instance=data)
+    form = GameInfoFormEdit(request.POST, request.FILES, instance=data)
     uuid_error = ""
     message = ""
 
@@ -76,7 +76,7 @@ def edit(request, editing_id):
             uuid_error = "UUIDが異なります"
             writeLog(request, "" , LogType.FAILED_UUID)
     else:
-        form = GameInfoForm(initial = {
+        form = GameInfoFormEdit(initial = {
             "name": data.name, 
             "representative" : data.representative, 
             "game_id" : data.game_id, 
