@@ -171,7 +171,7 @@ input[type="checkbox"]:checked + label::before {
 }
 
 .formsend input[type=submit] {
-    background: #1E88E5 url(../img/baseline_send_white_24dp.png) 80% center no-repeat;
+    background: #1E88E5 url(/static/gameregister/img/baseline_send_white_24dp.png) 80% center no-repeat;
     height: 50px;
     width: 180px;
 }
@@ -287,4 +287,8 @@ td.standard-td, th.standard-th {
     text-align:left;
     border: 1px solid #d6d6d6;
     padding: 6px 13px
+}
+
+.lp-img {
+    height: 600px;
 }
