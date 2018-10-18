@@ -25,13 +25,13 @@
                         <label for="{{ form.representative.id_for_label }}">企画者:</label>
                         {{ form.representative }}
                     </div>
-                    
+
                     <div class="fieldWrapper idnumber">
                         {{ form.game_id.errors }}
                         <label for="{{ form.game_id.id_for_label }}" class="row">GameID:</label>
                         {{ form.game_id }}
                     </div>
-                    
+
                     <div class="fieldWrapper">
                         {{ form.discription.errors }}
                         <label for="{{ form.discription.id_for_label }}">Discription:</label>
@@ -64,10 +64,10 @@
                         {{ form.is_keyboard }}
                         <label for="{{ form.is_keyboard.id_for_label }}">キーボード</label>
                     </div>
-                    <div class="fieldWrapper">
+                    <div class="fieldWrapper select">
                         <div>タグ:</div>
-                        {{ form.tag_list.errors }}
-                        {{ form.tag_list }}
+                        {{ form.tag.errors }}
+                        {{ form.tag }}
                     </div>
                     <div class="header">
                         <h1>ファイル登録</h1>

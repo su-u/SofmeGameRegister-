@@ -18,6 +18,7 @@ BASE_URL = "/static/gameregister/file/"
 
 def GameInfoView(request):
     form = GameInfoForm(request.POST or None, request.FILES)
+    tag_error = ""
     if request.method == "POST":
         ip, is_routable = get_client_ip(request)
         if form.is_valid():
@@ -45,11 +46,15 @@ def GameInfoView(request):
             "is_mouse":"",
             "is_gamepad":"",
             "is_keyboard":"",
-            "tag_list":"",
+            "tag_1":"",
+            "tag_2":"",
+            "tag_3":"",
+            "tag_4":"",
             })
     p = {
         "title" : "ゲーム情報登録",
         "form" : form,
+        "tag_error" : tag_error,
         }
     writeLog(request, "" , LogType.ACCESS_REGISTER)
     return render(request, "gameregister/gameregisterform.html", p )
@@ -95,7 +100,10 @@ def edit(request, editing_id):
             "is_mouse":data.is_mouse,
             "is_gamepad":data.is_gamepad,
             "is_keyboard":data.is_keyboard,
-            "tag_list":data.tag_list,
+            "tag_1": data.tag_1,
+            "tag_2": data.tag_2,
+            "tag_3": data.tag_3,
+            "tag_4": data.tag_4,
             })
     static_file = {
         "panel":data.panel,
@@ -160,3 +168,8 @@ def admin_index(request):
         }
     writeLog(request, "" , LogType.ACCESS_ADMIN_INDEX)
     return render(request, "gameregister/admin-index.html", d)
+
+#def tag_check(tags):
+#    for tag_back in reversed(tags):
+#        for tag_fowa in tags:
+#            if tag_back 

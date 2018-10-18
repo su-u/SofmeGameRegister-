@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.core.validators import ValidationError
 import uuid
 from colorfield.fields import ColorField
+import urllib.parse
 
 #FILE_PATH = "gameregister/static/gameregister"
 FILE_PATH = ""
@@ -32,13 +33,13 @@ def upload_to_gamefile(instance, filename):
     return "{id}/gamefile/{file}".format(id=instance.game_id, file=filename)
 
 def upload_to_panel(instance, filename):
-    return "{id}/panel/{file}".format(id=instance.game_id, file=filename)
+    return "{id}/panel/{file}".format(id=instance.game_id, file=(filename))
 
 def upload_to_pictures(instance, filename):
-    return "{id}/pictures/{file}".format(id=instance.game_id, file=filename)
+    return "{id}/pictures/{file}".format(id=instance.game_id, file=(filename))
 
 def upload_to_movie(instance, filename):
-    return "{id}/movie/{file}".format(id=instance.game_id, file=filename)
+    return "{id}/movie/{file}".format(id=instance.game_id, file=(filename))
 
 class GameInfo(models.Model):
     game_id = IntegerRangeField("GameID", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
@@ -74,13 +75,14 @@ class GameInfo(models.Model):
 
     is_view = models.BooleanField(default = True, blank = True)
 
-    tag_list = models.ForeignKey(Tag)
+    tag = models.ManyToManyField(Tag, verbose_name="タグ")
 
     def __str__(self):
         return str(self.game_uuid)
+
+    def __unicode__(self):
+        return u'%s' % (self.name)
    
-
-
 class Log(models.Model):
  
     ip = models.GenericIPAddressField("IPアドレス")

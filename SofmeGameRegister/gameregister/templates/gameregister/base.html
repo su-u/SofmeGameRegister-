@@ -5,11 +5,32 @@
     <meta charset="UTF-8">
     <meta name=”robots” content=”noindex”>
     <link href="{% static 'gameregister/css/index.css' %}" rel="stylesheet" />
+    <link href="{% static 'gameregister/css/multi-select.css' %}" rel="stylesheet" />
 
     <link href="http://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <script src="{% static 'gameregister/js/jquery-3.3.1.js' %}"></script>
+    <script type="text/javascript" src="{% static 'gameregister/js/jquery.multi-select.js' %}"></script>
+    <script type="text/javascript">
+        jQuery(function ($) {
+            var count = 0;
+            $('#id_tag').multiSelect({
+                afterSelect: function (values) {
+                    count++;
+                    if (count >= 5) {
+                        $('#id_tag').multiSelect('deselect', values);
+                    }
+                },
+                afterDeselect: function (values) {
+                    count--;
+                },
+                selectableHeader: "<div class='custom-header'>List</div>",
+                selectionHeader: "<div class='custom-header'>Selected</div>",
+            });
+        })
+
+    </script>
     <title>GameRegister</title>
 </head>
 <body>

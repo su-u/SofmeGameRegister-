@@ -1,12 +1,11 @@
 from django import forms
 from .models import GameInfo
-
  
 class GameInfoForm(forms.ModelForm):
     class Meta:
         model = GameInfo
         fields = ("name", "representative", "game_id", "discription", "windows", "android", "vr", "other",
-                  "is_mouse", "is_gamepad", "is_keyboard", "tag_list",
+                  "is_mouse", "is_gamepad", "is_keyboard", "tag",
                  "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
         
         widgets = {
@@ -15,6 +14,7 @@ class GameInfoForm(forms.ModelForm):
             "discription": forms.TextInput(attrs={"placeholder":"説明文","row":"2"}),
             "game_id": forms.TextInput(attrs={"placeholder":"GameID","type":"number"}),
             "edit_uuid": forms.TextInput(attrs={"placeholder":"UUID"}),
+            "tag": forms.SelectMultiple(attrs={"class":"js-select2"}),
             #"gamefile": forms.FileInput(attrs={"onchange":"gamefiletext.style.display='inline-block'; gamefiletext.value = this.value;"}),
             #"panel": forms.FileInput(attrs={"onchange":"paneltext.style.display='inline-block'; paneltext.value = this.value;"}),
             #"picture_1": forms.FileInput(attrs={"onchange":"picture_1text.style.display='inline-block'; picture_1text.value = this.value;"}),
@@ -27,7 +27,7 @@ class GameInfoFormEdit(forms.ModelForm):
     class Meta:
         model = GameInfo
         fields = ("name", "representative", "game_id", "discription", "windows", "android", "vr", "other",
-                  "is_mouse", "is_gamepad", "is_keyboard", "tag_list",
+                  "is_mouse", "is_gamepad", "is_keyboard", "tag",
                  "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
         
         widgets = {
