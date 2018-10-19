@@ -28,7 +28,6 @@ class IntegerRangeField(models.IntegerField):
         defaults.update(kwargs)
         return super(IntegerRangeField, self).formfield(**defaults)
 
-
 def upload_to_gamefile(instance, filename):
     return "{id}/gamefile/{file}".format(id=instance.game_id, file=filename)
 
