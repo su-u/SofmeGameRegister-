@@ -47,10 +47,7 @@ def GameInfoView(request):
             "is_mouse":"",
             "is_gamepad":"",
             "is_keyboard":"",
-            "tag_1":"",
-            "tag_2":"",
-            "tag_3":"",
-            "tag_4":"",
+            "tag":"",
             })
     p = {
         "title" : "ゲーム情報登録",
@@ -102,10 +99,7 @@ def edit(request, editing_id):
             "is_mouse":data.is_mouse,
             "is_gamepad":data.is_gamepad,
             "is_keyboard":data.is_keyboard,
-            "tag_1": data.tag_1,
-            "tag_2": data.tag_2,
-            "tag_3": data.tag_3,
-            "tag_4": data.tag_4,
+            "tag":data.tag.all(),
             })
     static_file = {
         "panel":data.panel,

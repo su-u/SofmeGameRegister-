@@ -36,6 +36,7 @@ class GameInfoFormEdit(forms.ModelForm):
             "discription": forms.TextInput(attrs={"placeholder":"説明文","row":"2"}),
             "game_id": forms.TextInput(attrs={"placeholder":"GameID","type":"number", "readonly":"readonly"}),
             "edit_uuid": forms.TextInput(attrs={"placeholder":"UUID"}),
+            "tag": forms.SelectMultiple(attrs={"class":"js-select2"}),
             #"gamefile": forms.FileInput(attrs={"onchange":"gamefiletext.style.display='inline-block'; gamefiletext.value = this.value;"}),
             #"panel": forms.FileInput(attrs={"onchange":"paneltext.style.display='inline-block'; paneltext.value = this.value;"}),
             #"picture_1": forms.FileInput(attrs={"onchange":"picture_1text.style.display='inline-block'; picture_1text.value = this.value;"}),
