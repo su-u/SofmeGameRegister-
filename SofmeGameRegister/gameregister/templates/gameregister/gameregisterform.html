@@ -105,8 +105,14 @@
                     </div>
                     <div class="fieldWrapperfile">
                         {{ form.movie.errors }}
-                        <div class="filelabel"><label for="{{ form.movie.id_for_label }}">動画:</label></div>
+                        <div class="filelabel"><label for="{{ form.movie.id_for_label }}">ランチャー用動画:</label></div>
                         {{ form.movie }}
+                    </div>
+
+                    <div class="fieldWrapperfile">
+                        {{ form.movie_2.errors }}
+                        <div class="filelabel"><label for="{{ form.movie_2.id_for_label }}">プレイ動画用動画:</label></div>
+                        {{ form.movie_2 }}
                     </div>
 
                     <div class="fieldWrapper">

@@ -44,7 +44,7 @@ class GameInfo(models.Model):
     game_id = IntegerRangeField("GameID", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text = "100文字以下")
-    discription = models.TextField()
+    discription = models.TextField(help_text = "100~160文字")
 
     windows = models.BooleanField("Windows端末", blank = True)
     android = models.BooleanField("Android端末", blank = True)
@@ -55,7 +55,6 @@ class GameInfo(models.Model):
     is_gamepad = models.BooleanField("ゲームパッド", blank = True)
     is_keyboard = models.BooleanField("キーボード", blank = True)
 
-    
     game_uuid = models.UUIDField(primary_key = False, default = uuid.uuid4, editable=False)
 
     gamefile = models.FileField(upload_to = upload_to_gamefile, blank = True)
@@ -68,6 +67,7 @@ class GameInfo(models.Model):
     picture_3 = models.FileField(upload_to = upload_to_pictures, blank = True)
 
     movie = models.FileField(upload_to = upload_to_movie, blank = True)
+    movie_2 = models.FileField(upload_to = upload_to_movie, blank = True)
 
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)

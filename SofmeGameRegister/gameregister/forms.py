@@ -5,7 +5,7 @@ class GameInfoForm(forms.ModelForm):
     class Meta:
         model = GameInfo
         fields = ("name", "representative", "game_id", "discription", "windows", "android", "vr", "other",
-                  "is_mouse", "is_gamepad", "is_keyboard", "tag",
+                  "is_mouse", "is_gamepad", "is_keyboard", "tag", "movie_2",
                  "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
         
         widgets = {
@@ -27,7 +27,7 @@ class GameInfoFormEdit(forms.ModelForm):
     class Meta:
         model = GameInfo
         fields = ("name", "representative", "game_id", "discription", "windows", "android", "vr", "other",
-                  "is_mouse", "is_gamepad", "is_keyboard", "tag",
+                  "is_mouse", "is_gamepad", "is_keyboard", "tag", "movie_2",
                  "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
         
         widgets = {
