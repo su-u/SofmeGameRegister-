@@ -91,3 +91,9 @@ class Log(models.Model):
  
     def __str__(self):
         return "{0},{1}".format(self.ip, self.access_at)
+
+    def access_at_custom(self, ):
+        return "{0}/{1}/{2} {3}:{4}:{5}" \
+            .format(self.access_at.strftime("%Y"), self.access_at.strftime("%m"), self.access_at.strftime("%d"), \
+            self.access_at.strftime("%H"), self.access_at.strftime("%M"), self.access_at.strftime("%S")
+            )
