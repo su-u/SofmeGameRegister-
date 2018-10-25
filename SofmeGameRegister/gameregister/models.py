@@ -74,7 +74,7 @@ class GameInfo(models.Model):
 
     is_view = models.BooleanField(default = True, blank = True)
 
-    tag = models.ManyToManyField(Tag, verbose_name="タグ")
+    tag = models.ManyToManyField(Tag, verbose_name="タグ",blank = True, null = True )
 
     def __str__(self):
         return str(self.game_uuid)
