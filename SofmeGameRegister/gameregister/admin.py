@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import GameInfo, Log, Tag
+#from import_export.admin import ImportExportActionModelAdmin
 
 
 # Register your models here.
@@ -15,12 +16,16 @@ class GameInfoAdmin(admin.ModelAdmin):
     search_fields = ("game_id", "name",)
     list_filter = ("windows", "android", "vr", "other", "is_mouse", "is_gamepad", "is_keyboard", "tag",)
 
+#class LogAdmin(ImportExportActionModelAdmin):
 class LogAdmin(admin.ModelAdmin):
     #readonly_fields = ("ip")
     readonly_fields = ("ip", "access_at", "access_type",)
     list_display = ("access_at_custom", "ip", "access_type")
     search_fields = ("access_type",)
     list_filter = ("access_type",)
+    list_select_related = True
+    date_hierarchy = "access_at"
+
 
 class TagAdmin(admin.ModelAdmin):
     readonly_fields = ("tag_id",)

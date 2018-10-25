@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'gameregister',
     'colorfield',
     'django_cleanup',
+#    'import_export',
 )
 
 MIDDLEWARE_CLASSES = (
