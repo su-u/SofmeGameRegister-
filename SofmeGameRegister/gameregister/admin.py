@@ -18,6 +18,7 @@ class GameInfoAdmin(admin.ModelAdmin):
     exclude = ('tag',)
     search_fields = ("game_id", "name",)
     list_filter = ("windows", "android", "vr", "other", "is_mouse", "is_gamepad", "is_keyboard", "tag",)
+    ordering = ("game_id",)
 
 #class LogAdmin(ImportExportActionModelAdmin):
 class LogAdmin(admin.ModelAdmin):
@@ -33,6 +34,7 @@ class LogAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     readonly_fields = ("tag_id",)
     list_display = ("tag_id", "tag_name", "color")
+    ordering = ("tag_id",)
 
 admin.site.register(GameInfo, GameInfoAdmin)
 admin.site.register(Log, LogAdmin)
