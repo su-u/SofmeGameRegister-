@@ -83,7 +83,6 @@ class GameInfo(models.Model):
         return u'%s' % (self.name)
    
 class Log(models.Model):
- 
     ip = models.GenericIPAddressField("IPアドレス")
     access_at = models.DateTimeField("アクセス時間", auto_now_add = True)
     access_type = models.CharField("アクセスタイプ", max_length = 100)
