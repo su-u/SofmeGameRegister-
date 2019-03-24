@@ -96,3 +96,10 @@ class Log(models.Model):
             .format(self.access_at.strftime("%Y"), self.access_at.strftime("%m"), self.access_at.strftime("%d"), \
             self.access_at.strftime("%H"), self.access_at.strftime("%M"), self.access_at.strftime("%S")
             )
+
+
+class ImageStandard(models.Model):
+    pass
+
+class MovieStandard(models.Model):
+    pass
