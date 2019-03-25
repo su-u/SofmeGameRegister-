@@ -171,7 +171,7 @@ def admin_index(request):
 #            if tag_back
 
 def body(request):
-    data = Blog.objects.get(pk = 1)
+    data = HTMLbody.objects.get(pk = 1)
     d = {
         "title": "提出一覧",
         "body": data,
