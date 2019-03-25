@@ -27,7 +27,7 @@
                             <td>{{ item.name }}</td>
                             <td>{{ item.created_at }}</td>
                             <td>{{ item.updated_at }}</td>
-                            <td><button class="button small-button" onClick="location.href='{% url 'edit' item.game_id %}'">更新画面へ</button></td>
+                            <td><button class="button small-button" onClick="location.href='{% url 'edit' item.game_id %}'">詳細ページ</button></td>
                         </tr>
                         {% endfor %}
                     </tbody>
