@@ -7,10 +7,25 @@ from colorfield.fields import ColorField
 import urllib.parse
 from tinymce.models import HTMLField
 
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
+
 #FILE_PATH = "gameregister/static/gameregister"
 FILE_PATH = ""
 
-# Create your models here.
+
+def upload_to_gamefile(instance, filename):
+    return "{id}/gamefile/{file}".format(id=instance.game_id, file=filename)
+
+def upload_to_panel(instance, filename):
+    return "{id}/panel/{file}".format(id=instance.game_id, file=(filename))
+
+def upload_to_pictures(instance, filename):
+    return "{id}/pictures/{file}".format(id=instance.game_id, file=(filename))
+
+def upload_to_movie(instance, filename):
+    return "{id}/movie/{file}".format(id=instance.game_id, file=(filename))
+
 
 class Tag(models.Model):
     tag_id = models.AutoField("TagID", primary_key=True)
@@ -29,17 +44,6 @@ class IntegerRangeField(models.IntegerField):
         defaults.update(kwargs)
         return super(IntegerRangeField, self).formfield(**defaults)
 
-def upload_to_gamefile(instance, filename):
-    return "{id}/gamefile/{file}".format(id=instance.game_id, file=filename)
-
-def upload_to_panel(instance, filename):
-    return "{id}/panel/{file}".format(id=instance.game_id, file=(filename))
-
-def upload_to_pictures(instance, filename):
-    return "{id}/pictures/{file}".format(id=instance.game_id, file=(filename))
-
-def upload_to_movie(instance, filename):
-    return "{id}/movie/{file}".format(id=instance.game_id, file=(filename))
 
 class GameInfo(models.Model):
     game_id = IntegerRangeField("GameID", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
@@ -61,11 +65,33 @@ class GameInfo(models.Model):
     gamefile = models.FileField(upload_to = upload_to_gamefile, blank = True)
     gamefile_path = models.FilePathField(blank = True, null = True)
 
-    panel = models.FileField(upload_to = upload_to_panel, blank = True)
+    #panel = models.FileField(upload_to = upload_to_panel, blank = True)
+    panel = ProcessedImageField(upload_to = upload_to_panel,
+                                processors=[ResizeToFill(800, 800)],
+                                format='JPEG',
+                                options={'quality': 90},
+                                blank = True)
     
-    picture_1 = models.FileField(upload_to = upload_to_pictures, blank = True)
-    picture_2 = models.FileField(upload_to = upload_to_pictures, blank = True)
-    picture_3 = models.FileField(upload_to = upload_to_pictures, blank = True)
+    #picture_1 = models.FileField(upload_to = upload_to_pictures, blank = True)
+    picture_1 = ProcessedImageField(upload_to = upload_to_pictures,
+                                processors=[ResizeToFill(1280, 720)],
+                                format='JPEG',
+                                options={'quality': 90},
+                                blank = True)
+
+    #picture_2 = models.FileField(upload_to = upload_to_pictures, blank = True)
+    picture_2 = ProcessedImageField(upload_to = upload_to_pictures,
+                                processors=[ResizeToFill(1280, 720)],
+                                format='JPEG',
+                                options={'quality': 90},
+                                blank = True)
+
+    #picture_3 = models.FileField(upload_to = upload_to_pictures, blank = True)
+    picture_3 = ProcessedImageField(upload_to = upload_to_pictures,
+                                processors=[ResizeToFill(1280, 720)],
+                                format='JPEG',
+                                options={'quality': 90},
+                                blank = True)
 
     movie = models.FileField(upload_to = upload_to_movie, blank = True)
     movie_2 = models.FileField(upload_to = upload_to_movie, blank = True)
@@ -82,7 +108,8 @@ class GameInfo(models.Model):
 
     def __unicode__(self):
         return u'%s' % (self.name)
-   
+
+
 class Log(models.Model):
     ip = models.GenericIPAddressField("IPアドレス")
     access_at = models.DateTimeField("アクセス時間", auto_now_add = True)

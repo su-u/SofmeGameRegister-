@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'colorfield',
     'django_cleanup.apps.CleanupConfig',
     'tinymce',
+    'imagekit'
 #    'import_export',
 )
 
