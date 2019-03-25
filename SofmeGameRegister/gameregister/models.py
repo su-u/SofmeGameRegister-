@@ -125,13 +125,6 @@ class Log(models.Model):
             self.access_at.strftime("%H"), self.access_at.strftime("%M"), self.access_at.strftime("%S")
             )
 
-
-class ImageStandard(models.Model):
-    pass
-
-class MovieStandard(models.Model):
-    pass
-
 class HTMLbody(models.Model):
     page_id = models.IntegerField("PageID", primary_key = True)
     title = models.CharField(max_length=120, blank = True, null = True)
