@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'gameregister',
     'colorfield',
-    'django_cleanup',
+    'django_cleanup.apps.CleanupConfig',
     'tinymce',
 #    'import_export',
 )
