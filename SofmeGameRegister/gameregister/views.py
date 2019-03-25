@@ -11,7 +11,7 @@ import logging
 from ipware import get_client_ip
 from .logtype import LogType
 
-from .models import GameInfo, Log
+from .models import GameInfo, Log, HTMLbody
 from .forms import GameInfoForm, EditForm, GameInfoFormEdit
 
 BASE_URL = "/static/gameregister/file/"
@@ -169,3 +169,12 @@ def admin_index(request):
 #    for tag_back in reversed(tags):
 #        for tag_fowa in tags:
 #            if tag_back
+
+def body(request):
+    data = Blog.objects.get(pk = 1)
+    d = {
+        "title": "提出一覧",
+        "body": data,
+        }
+    #writeLog(request, "" , LogType.ACCESS_ADMIN_INDEX)
+    return render(request, "gameregister/body.html", d)

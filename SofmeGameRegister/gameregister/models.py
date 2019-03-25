@@ -5,6 +5,7 @@ from django.core.validators import ValidationError
 import uuid
 from colorfield.fields import ColorField
 import urllib.parse
+from tinymce.models import HTMLField
 
 #FILE_PATH = "gameregister/static/gameregister"
 FILE_PATH = ""
@@ -103,3 +104,11 @@ class ImageStandard(models.Model):
 
 class MovieStandard(models.Model):
     pass
+
+class HTMLbody(models.Model):
+    title = models.CharField(max_length=120)
+    description = models.TextField(max_length=250,null=True)
+    body = HTMLField()
+
+    def __str__(self):
+        return self.title

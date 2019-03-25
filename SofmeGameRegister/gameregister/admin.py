@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import GameInfo, Log, Tag
+from .models import GameInfo, Log, Tag, HTMLbody
 #from import_export.admin import ImportExportActionModelAdmin
 
 admin.site.site_title = "ゲーム情報管理ページ"
@@ -39,6 +39,7 @@ class TagAdmin(admin.ModelAdmin):
 admin.site.register(GameInfo, GameInfoAdmin)
 admin.site.register(Log, LogAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(HTMLbody)
 
 def access_at_custom(self, obj):
     return obj.access_at_custom()

@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'gameregister',
     'colorfield',
     'django_cleanup',
+    'tinymce',
 #    'import_export',
 )
 
@@ -75,7 +76,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'SofmeGameRegister.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -113,3 +113,14 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "gameregister/static/gameregister/file/")
 MEDIA_URL = "/static/gameregister/file/"
+
+
+TINYMCE_DEFAULT_CONFIG = {
+    "height": 800,
+    "width": "100%",
+    "plugins": "table,spellchecker,paste,searchreplace",
+    "language": "ja",
+    "theme": "advanced",
+    "toolbar"  : 'bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image | link jbimages | preview',
+    "element_format" : "html"
+}

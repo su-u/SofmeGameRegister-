@@ -11,5 +11,6 @@ urlpatterns = [
     url(r"^$", views.lp, name = "lp"),
     url(r"^confirmation$", views.confirmation, name = "Confirmation"),
     url(r"^adminindex$", views.admin_index, name = "Admin-index"),
+    url(r"^body$", views.body, name = "body"),
 ]
 
