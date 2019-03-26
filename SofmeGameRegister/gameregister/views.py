@@ -28,9 +28,10 @@ def GameInfoView(request):
             return render(request, "gameregister/complete.html", {"title" : "ゲーム登録完了", "message" : data.game_uuid})
     else:
         form = GameInfoForm(initial = {
-            "name": "", 
-            "representative" : "", 
-            "game_id" : "", 
+            "name": "",
+            "representative" : "",
+            "game_id" : "",
+            "display_id" : "",
             "launcher_description" : "",
             "signbord_description" : "",
             "windows" : "",
@@ -44,7 +45,7 @@ def GameInfoView(request):
             "picture_3" : "",
             "movie" : "",
             "movie_2": "",
-            "is_view":"",
+            "is_display":"",
             "is_mouse":"",
             "is_gamepad":"",
             "is_keyboard":"",
@@ -81,9 +82,10 @@ def edit(request, editing_id):
             writeLog(request, "" , LogType.FAILED_UUID)
     else:
         form = GameInfoFormEdit(initial = {
-            "name": data.name, 
-            "representative" : data.representative, 
-            "game_id" : data.game_id, 
+            "name": data.name,
+            "representative" : data.representative,
+            "game_id" : data.game_id,
+            "display_id" : data.display_id,
             "launcher_description" : data.launcher_description,
             "signbord_description" : data.signbord_description,
             "windows" : data.windows,
@@ -97,7 +99,7 @@ def edit(request, editing_id):
             "picture_3" : data.picture_3,
             "movie" : data.movie,
             "movie_2": data.movie_2,
-            "is_view":data.is_view,
+            "is_display":data.is_display,
             "is_mouse":data.is_mouse,
             "is_gamepad":data.is_gamepad,
             "is_keyboard":data.is_keyboard,

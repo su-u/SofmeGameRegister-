@@ -25,11 +25,15 @@
                         <label for="{{ form.representative.id_for_label }}">企画者:</label>
                         {{ form.representative }}
                     </div>
-
                     <div class="fieldWrapper idnumber">
                         {{ form.game_id.errors }}
                         <label for="{{ form.game_id.id_for_label }}" class="row">GameID:</label>
                         {{ form.game_id }}
+                    </div>
+                    <div class="fieldWrapper idnumber">
+                        {{ form.display_id.errors }}
+                        <label for="{{ form.display_id.id_for_label }}" class="row">DisplayID:</label>
+                        {{ form.display_id }}
                     </div>
                     <div class="fieldWrapper">
                         {{ form.launcher_description.errors }}

@@ -30,6 +30,11 @@
                         <label for="{{ form.game_id.id_for_label }}" class="row">GameID:</label>
                         {{ form.game_id }}
                     </div>
+                    <div class="fieldWrapper idnumber">
+                        {{ form.display_id.errors }}
+                        <label for="{{ form.display_id.id_for_label }}" class="row">DisplayID:</label>
+                        {{ form.display_id }}
+                    </div>
                     <div class="fieldWrapper">
                         {{ form.launcher_description.errors }}
                         <label for="{{ form.launcher_description.id_for_label }}">ランチャー用説明文:</label>

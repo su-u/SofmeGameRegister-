@@ -13,11 +13,11 @@ class TagInline(admin.TabularInline):
 
 class GameInfoAdmin(admin.ModelAdmin):
     readonly_fields = ("created_at", "updated_at","game_uuid")
-    list_display = ("game_id", "name","representative", "updated_at", "game_uuid", "windows", "android", "vr", "other",)
+    list_display = ("game_id", "display_id", "name","representative", "updated_at", "game_uuid", "is_display",)
     inlines = [TagInline]
     exclude = ('tag',)
     search_fields = ("game_id", "name",)
-    list_filter = ("windows", "android", "vr", "other", "is_mouse", "is_gamepad", "is_keyboard", "tag",)
+    list_filter = ("windows", "android", "vr", "other", "is_mouse", "is_gamepad", "is_keyboard", "tag", "is_display")
     ordering = ("game_id",)
 
 #class LogAdmin(ImportExportActionModelAdmin):
