@@ -49,7 +49,8 @@ class GameInfo(models.Model):
     game_id = IntegerRangeField("GameID", default = 1, primary_key = True, help_text='1~100', min_value=1, max_value=100)
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text = "100文字以下")
-    discription = models.TextField(help_text = "100~160文字")
+    launcher_description = models.TextField("ランチャー用説明文", help_text = "100~160文字")
+    signbord_description = models.TextField("プロジェクト看板用説明文", help_text = "100~160文字")
 
     windows = models.BooleanField("Windows端末", blank = True)
     android = models.BooleanField("Android端末", blank = True)
@@ -104,7 +105,7 @@ class GameInfo(models.Model):
     tag = models.ManyToManyField(Tag, verbose_name="タグ",blank = True, null = True )
 
     def __str__(self):
-        return str(self.game_uuid)
+        return str(self.name)
 
     def __unicode__(self):
         return u'%s' % (self.name)

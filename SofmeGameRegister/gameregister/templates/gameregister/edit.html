@@ -31,11 +31,15 @@
                         <label for="{{ form.game_id.id_for_label }}" class="row">GameID:</label>
                         {{ form.game_id }}
                     </div>
-
                     <div class="fieldWrapper">
-                        {{ form.discription.errors }}
-                        <label for="{{ form.discription.id_for_label }}">Discription:</label>
-                        {{ form.discription }}
+                        {{ form.launcher_description.errors }}
+                        <label for="{{ form.launcher_description.id_for_label }}">ランチャー用説明文:</label>
+                        {{ form.launcher_description }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.signbord_description.errors }}
+                        <label for="{{ form.signbord_description.id_for_label }}">プロジェクト看板用説明文:</label>
+                        {{ form.signbord_description }}
                     </div>
                     <div class="fieldWrapper">
                         <div>動作端末:</div>
