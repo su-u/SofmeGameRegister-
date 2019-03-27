@@ -12,6 +12,7 @@ urlpatterns = [
     url(r"^confirmation$", views.confirmation, name = "Confirmation"),
     url(r"^adminindex$", views.admin_index, name = "Admin-index"),
     url(r"^manual$", views.manual_page, name = "Manual-Page"),
+    url(r"^movie$", views.movie_page, name = "Movie-Page"),
 
     url(r"^body$", views.body, name = "body"),
 ]

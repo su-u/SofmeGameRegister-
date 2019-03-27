@@ -195,7 +195,7 @@ def movie_page(request):
         "title": "プレイ動画班用ページ",
         "data": data,
         }
-    return render(request, "gameregister/body.html", d)
+    return render(request, "gameregister/movie_page.html", d)
 
 def sign_bord_page(request):
     writeLog(request, "" , LogType.ACCESS_SIGH_BORD_PAGE)
