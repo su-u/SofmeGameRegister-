@@ -28,9 +28,9 @@
                             <td>{{ item.name }}</td>
                             <td>{{ item.updated_at }}</td>
                             {% if item.game_manual != "" %}
-                            <td><a href="{{item.game_manual.url|safe}}">{{ item.game_manual }}</a></td>
+                                <td><a href="{{item.game_manual.url|safe}}">{{ item.game_manual }}</a></td>
                             {% else %}
-                            <td>未提出</td>
+                                <td>未提出</td>
                             {% endif %}
                         </tr>
                         {% endfor %}
