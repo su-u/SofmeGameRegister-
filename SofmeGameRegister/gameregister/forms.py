@@ -5,8 +5,8 @@ class GameInfoForm(forms.ModelForm):
     class Meta:
         model = GameInfo
         fields = ("name", "representative", "game_id", "display_id", "launcher_description", "signbord_description", "windows", "android", "vr", "other",
-                  "is_mouse", "is_gamepad", "is_keyboard", "tag", "movie_2",
-                 "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
+                 "is_mouse", "is_gamepad", "is_keyboard", "tag", "movie_2",
+                 "game_manual", "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
         
         widgets = {
             "name": forms.TextInput(attrs={"placeholder":"ゲーム名"}),
@@ -29,8 +29,8 @@ class GameInfoFormEdit(forms.ModelForm):
     class Meta:
         model = GameInfo
         fields = ("name", "representative", "game_id", "display_id", "launcher_description", "signbord_description", "windows", "android", "vr", "other",
-                  "is_mouse", "is_gamepad", "is_keyboard", "tag", "movie_2",
-                 "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
+                 "is_mouse", "is_gamepad", "is_keyboard", "tag", "movie_2",
+                 "game_manual", "gamefile", "panel","picture_1","picture_2","picture_3" ,"movie")
         
         widgets = {
             "name": forms.TextInput(attrs={"placeholder":"ゲーム名"}),

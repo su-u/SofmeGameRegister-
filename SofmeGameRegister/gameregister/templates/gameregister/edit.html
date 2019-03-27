@@ -81,6 +81,11 @@
                         <h1>ファイル登録</h1>
                     </div>
                     <div class="fieldWrapperfile">
+                        {{ form.game_manual.errors }}
+                        <div class="filelabel"><label for="{{ form.game_manual.id_for_label }}">ゲームマニュアル:</label></div>
+                        {{ form.game_manual }}
+                    </div>
+                    <div class="fieldWrapperfile">
                         {{ form.gamefile.errors }}
                         <div class="filelabel"><label for="{{ form.gamefile.id_for_label }}">ゲームファイル:</label></div>
                         {{ form.gamefile }}

@@ -38,6 +38,7 @@ def GameInfoView(request):
             "android" : "",
             "vr" : "",
             "other" : "",
+            "game_manual" : "",
             "gamefile" : "",
             "panel" : "",
             "picture_1" : "",
@@ -75,8 +76,7 @@ def edit(request, editing_id):
                 form.save()
                 id = GameInfo.objects.get(pk = editing_id)
                 writeLog(request, id, LogType.UPDATE)
-
-                return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data})
+                return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data.game_uuid})
         elif request.POST.get("edit_uuid") != str(data.game_uuid):
             uuid_error = "UUIDが異なります"
             writeLog(request, "" , LogType.FAILED_UUID)
@@ -92,6 +92,7 @@ def edit(request, editing_id):
             "android" : data.android,
             "vr" : data.vr,
             "other" : data.other,
+            "game_manual" : data.game_manual,
             "gamefile" : data.gamefile,
             "panel" : data.panel,
             "picture_1" : data.picture_1,
