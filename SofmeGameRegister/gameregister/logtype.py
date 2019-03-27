@@ -10,6 +10,9 @@ class LogType(Enum):
     ACCESS_CONFIRMATION = 7
     ACCESS_LP = 8
     FAILED_UUID = 9
+    ACCESS_MANUAL_PAGE = 10
+    ACCESS_SIGH_BORD_PAGE = 11
+    ACCESS_MOVIE_PAGE = 12
 
     def string(type):
         if type == LogType.NEW:
@@ -30,3 +33,9 @@ class LogType(Enum):
             return "ACCESS_LP"
         elif type == LogType.FAILED_UUID:
             return "FAILED_UUID"
+        elif type == LogType.ACCESS_MANUAL_PAGE:
+            return "ACCESS_MANUAL_PAGE"
+        elif type == LogType.ACCESS_SIGH_BORD_PAGE:
+            return "ACCESS_SIGH_BORD_PAGE"
+        elif type == LogType.ACCESS_MOVIE_PAGE:
+            return "ACCESS_MOVIE_PAGE"
