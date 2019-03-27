@@ -14,15 +14,9 @@ class GameInfoForm(forms.ModelForm):
             "launcher_description": forms.TextInput(attrs={"placeholder":"ランチャー用説明文","row":"2"}),
             "signbord_description": forms.TextInput(attrs={"placeholder":"プロジェクト看板用説明文","row":"2"}),
             "game_id": forms.TextInput(attrs={"placeholder":"GameID","type":"number"}),
-            "display_id": forms.TextInput(attrs={"placeholder":"展示ID(入力不要)","type":"number", "readonly":"readonly"}),
+            "display_id": forms.TextInput(attrs={"placeholder":"展示ID(入力不可)","type":"number", "readonly":"readonly"}),
             "edit_uuid": forms.TextInput(attrs={"placeholder":"UUID"}),
             "tag": forms.SelectMultiple(attrs={"class":"js-select2"}),
-            #"gamefile": forms.FileInput(attrs={"onchange":"gamefiletext.style.display='inline-block'; gamefiletext.value = this.value;"}),
-            #"panel": forms.FileInput(attrs={"onchange":"paneltext.style.display='inline-block'; paneltext.value = this.value;"}),
-            #"picture_1": forms.FileInput(attrs={"onchange":"picture_1text.style.display='inline-block'; picture_1text.value = this.value;"}),
-            #"picture_2": forms.FileInput(attrs={"onchange":"picture_2text.style.display='inline-block'; picture_2text.value = this.value;"}),
-            #"picture_3": forms.FileInput(attrs={"onchange":"picture_3text.style.display='inline-block'; picture_3text.value = this.value;"}),
-            #"movie": forms.FileInput(attrs={"onchange":"movietext.style.display='inline-block'; movietext.value = this.value;"}),
         }
 
 class GameInfoFormEdit(forms.ModelForm):
@@ -41,12 +35,6 @@ class GameInfoFormEdit(forms.ModelForm):
             "display_id": forms.TextInput(attrs={"placeholder":"展示ID","type":"number", "readonly":"readonly"}),
             "edit_uuid": forms.TextInput(attrs={"placeholder":"UUID"}),
             "tag": forms.SelectMultiple(attrs={"class":"js-select2"}),
-            #"gamefile": forms.FileInput(attrs={"onchange":"gamefiletext.style.display='inline-block'; gamefiletext.value = this.value;"}),
-            #"panel": forms.FileInput(attrs={"onchange":"paneltext.style.display='inline-block'; paneltext.value = this.value;"}),
-            #"picture_1": forms.FileInput(attrs={"onchange":"picture_1text.style.display='inline-block'; picture_1text.value = this.value;"}),
-            #"picture_2": forms.FileInput(attrs={"onchange":"picture_2text.style.display='inline-block'; picture_2text.value = this.value;"}),
-            #"picture_3": forms.FileInput(attrs={"onchange":"picture_3text.style.display='inline-block'; picture_3text.value = this.value;"}),
-            #"movie": forms.FileInput(attrs={"onchange":"movietext.style.display='inline-block'; movietext.value = this.value;"}),
         }
 
 class EditForm(forms.Form):
