@@ -125,8 +125,8 @@ class GameInfo(models.Model):
                                 blank = True,
                                 validators=[validate_is_pictures])
 
-    movie = models.FileField(upload_to = upload_to_movie, blank = True, validators=[validate_is_movies])
-    movie_2 = models.FileField(upload_to = upload_to_movie, blank = True, validators=[validate_is_movies])
+    movie = models.FileField("ランチャー用動画", upload_to = upload_to_movie, blank = True, validators=[validate_is_movies])
+    movie_2 = models.FileField("プレイ動画", upload_to = upload_to_movie, blank = True, validators=[validate_is_movies])
 
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)
