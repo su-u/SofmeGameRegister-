@@ -1,14 +1,14 @@
 from django.db import models
 from datetime import datetime
 from django.contrib import admin
-from django.core.validators import ValidationError
-import uuid
 from colorfield.fields import ColorField
-import urllib.parse
 from tinymce.models import HTMLField
-
+from django.core.exceptions import ValidationError
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
+import os
+import uuid
+import urllib.parse
 
 #FILE_PATH = "gameregister/static/gameregister"
 FILE_PATH = ""
@@ -26,6 +26,14 @@ def upload_to_pictures(instance, filename):
 def upload_to_movie(instance, filename):
     return "{id}/movie/{file}".format(id=instance.game_id, file=(filename))
 
+def upload_to_manual(instance, filename):
+    return "{id}/manual/{file}".format(id=instance.game_id, file=(filename))
+
+def validate_is_game_manual(value):
+    ext = os.path.splitext(value.name)[1]
+
+    if not ext.lower() in [".pdf", ".PDF"]:
+        raise ValidationError("拡張子が\"pdf\"ではありません。")
 
 class Tag(models.Model):
     tag_id = models.AutoField("TagID", primary_key=True)
@@ -63,6 +71,8 @@ class GameInfo(models.Model):
     is_keyboard = models.BooleanField("キーボード", blank = True)
 
     game_uuid = models.UUIDField(primary_key = False, default = uuid.uuid4, editable=False)
+
+    game_manual = models.FileField(upload_to = upload_to_manual, blank = True, validators=[validate_is_game_manual])
 
     gamefile = models.FileField(upload_to = upload_to_gamefile, blank = True)
     gamefile_path = models.FilePathField(blank = True, null = True)
