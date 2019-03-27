@@ -3,9 +3,10 @@ from datetime import datetime
 from django.contrib import admin
 from colorfield.fields import ColorField
 from tinymce.models import HTMLField
-from django.core.exceptions import ValidationError
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
+from django.core.exceptions import ValidationError
+from django.core.validators import MinLengthValidator
 import os
 import uuid
 import urllib.parse
@@ -29,11 +30,26 @@ def upload_to_movie(instance, filename):
 def upload_to_manual(instance, filename):
     return "{id}/manual/{file}".format(id=instance.game_id, file=(filename))
 
+#バリデーションチェック
 def validate_is_game_manual(value):
     ext = os.path.splitext(value.name)[1]
-
     if not ext.lower() in [".pdf", ".PDF"]:
         raise ValidationError("拡張子が\"pdf\"ではありません。")
+
+def validate_is_game_file(value):
+    ext = os.path.splitext(value.name)[1]
+    if not ext.lower() in [".zip", ".ZIP"]:
+        raise ValidationError("拡張子が\"zip\"ではありません。")
+
+def validate_is_pictures(value):
+    ext = os.path.splitext(value.name)[1]
+    if not ext.lower() in [".jpeg", ".JPEG", ".png", ".PNG", ".jpg", ".JPG"]:
+        raise ValidationError("拡張子が\"jpg\",\"jpeg\",\"png\"ではありません。")
+
+def validate_is_movies(value):
+    ext = os.path.splitext(value.name)[1]
+    if not ext.lower() in [".mp4", ".MP4", ".avi", ".AVI"]:
+        raise ValidationError("拡張子が\"mp4\",\"avi\"ではありません。")
 
 class Tag(models.Model):
     tag_id = models.AutoField("TagID", primary_key=True)
@@ -58,8 +74,8 @@ class GameInfo(models.Model):
     display_id = IntegerRangeField("displayID", default = 1, help_text='1~00', min_value=1, max_value=500, blank = True, null = True)
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text = "100文字以下")
-    launcher_description = models.TextField("ランチャー用説明文", help_text = "100~160文字")
-    signbord_description = models.TextField("プロジェクト看板用説明文", help_text = "100~160文字")
+    launcher_description = models.TextField("ランチャー用説明文", help_text = "100~160文字", validators=[MinLengthValidator(100)], max_length=160)
+    signbord_description = models.TextField("プロジェクト看板用説明文", help_text = "20~80文字", validators=[MinLengthValidator(20)], max_length=80)
 
     windows = models.BooleanField("Windows端末", blank = True)
     android = models.BooleanField("Android端末", blank = True)
@@ -74,7 +90,7 @@ class GameInfo(models.Model):
 
     game_manual = models.FileField(upload_to = upload_to_manual, blank = True, validators=[validate_is_game_manual])
 
-    gamefile = models.FileField(upload_to = upload_to_gamefile, blank = True)
+    gamefile = models.FileField(upload_to = upload_to_gamefile, blank = True, validators=[validate_is_game_file])
     gamefile_path = models.FilePathField(blank = True, null = True)
 
     #panel = models.FileField(upload_to = upload_to_panel, blank = True)
@@ -82,31 +98,35 @@ class GameInfo(models.Model):
                                 processors=[ResizeToFill(800, 800)],
                                 format='JPEG',
                                 options={'quality': 90},
-                                blank = True)
+                                blank = True,
+                                validators=[validate_is_pictures])
     
     #picture_1 = models.FileField(upload_to = upload_to_pictures, blank = True)
     picture_1 = ProcessedImageField(upload_to = upload_to_pictures,
                                 processors=[ResizeToFill(1280, 720)],
                                 format='JPEG',
                                 options={'quality': 90},
-                                blank = True)
+                                blank = True,
+                                validators=[validate_is_pictures])
 
     #picture_2 = models.FileField(upload_to = upload_to_pictures, blank = True)
     picture_2 = ProcessedImageField(upload_to = upload_to_pictures,
                                 processors=[ResizeToFill(1280, 720)],
                                 format='JPEG',
                                 options={'quality': 90},
-                                blank = True)
+                                blank = True,
+                                validators=[validate_is_pictures])
 
     #picture_3 = models.FileField(upload_to = upload_to_pictures, blank = True)
     picture_3 = ProcessedImageField(upload_to = upload_to_pictures,
                                 processors=[ResizeToFill(1280, 720)],
                                 format='JPEG',
                                 options={'quality': 90},
-                                blank = True)
+                                blank = True,
+                                validators=[validate_is_pictures])
 
-    movie = models.FileField(upload_to = upload_to_movie, blank = True)
-    movie_2 = models.FileField(upload_to = upload_to_movie, blank = True)
+    movie = models.FileField(upload_to = upload_to_movie, blank = True, validators=[validate_is_movies])
+    movie_2 = models.FileField(upload_to = upload_to_movie, blank = True, validators=[validate_is_movies])
 
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)
