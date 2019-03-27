@@ -71,7 +71,7 @@ class IntegerRangeField(models.IntegerField):
 
 class GameInfo(models.Model):
     game_id = IntegerRangeField("GameID", default = 1, primary_key = True, help_text='1~500', min_value=1, max_value=500)
-    display_id = IntegerRangeField("displayID", default = 1, help_text='1~00', min_value=1, max_value=500, blank = True, null = True)
+    display_id = IntegerRangeField("displayID", default = 1, help_text='1~500', min_value=1, max_value=500, blank = True, null = True)
     name = models.CharField("名前", max_length = 100, help_text = '100文字以下')
     representative = models.CharField("企画者", max_length = 100, help_text = "100文字以下")
     launcher_description = models.TextField("ランチャー用説明文", help_text = "100~160文字", validators=[MinLengthValidator(100)], max_length=160)
