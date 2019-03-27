@@ -17,7 +17,8 @@
                             <th>展示ID</th>
                             <th>名前</th>
                             <th>最終更新時間</th>
-                            <th>動画リンク</th>
+                            <th>ランチャー用動画</th>
+                            <th>プレイ動画用動画</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -31,6 +32,11 @@
                             {% endif %}
                             <td>{{ item.name }}</td>
                             <td>{{ item.updated_at }}</td>
+                            {% if item.movie.url != "" %}
+                            <td><a href="{{item.movie.url|safe}}">{{ item.movie.name }}</a></td>
+                            {% else %}
+                            <td>未提出</td>
+                            {% endif %}
                             {% if item.movie_2.url != "" %}
                             <td><a href="{{item.movie_2.url|safe}}">{{ item.movie_2.name }}</a></td>
                             {% else %}

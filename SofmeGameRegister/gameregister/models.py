@@ -161,7 +161,7 @@ class HTMLbody(models.Model):
     page_id = models.IntegerField("PageID", primary_key = True)
     title = models.CharField(max_length=120, blank = True, null = True)
     description = models.TextField("ページの説明", max_length=250, blank = True, null = True)
-    body = HTMLField()
+    body = HTMLField(blank = True)
 
     def __str__(self):
         return self.title
