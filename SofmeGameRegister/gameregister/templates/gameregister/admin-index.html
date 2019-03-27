@@ -10,7 +10,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>GameID</th>
+                            <th>DIsplayID</th>
                             <th>名前</th>
                             <th>代表者</th>
                             <th>初期提出時間</th>
@@ -33,6 +34,11 @@
                         {% for item in data %}
                         <tr>
                             <td>{{ item.game_id }}</td>
+                            {% if item.display_id != None %}
+                            <td>{{ item.display_id }}</td>
+                            {% else %}
+                            <td></td>
+                            {% endif %}
                             <td>{{ item.name }}</td>
                             <td>{{ item.representative }}</td>
                             <td>{{ item.created_at }}</td>
@@ -48,8 +54,8 @@
                             <td>{{ item.is_keyboard }}</td>
 
                             <td>{{ item.game_uuid }}</td>
-                            <td>{{ item.is_view }}</td>
-                            
+                            <td>{{ item.is_display }}</td>
+
                         </tr>
                         {% endfor %}
                     </tbody>
