@@ -170,11 +170,6 @@ def admin_index(request):
     writeLog(request, "" , LogType.ACCESS_ADMIN_INDEX)
     return render(request, "gameregister/admin-index.html", d)
 
-#def tag_check(tags):
-#    for tag_back in reversed(tags):
-#        for tag_fowa in tags:
-#            if tag_back
-
 def body(request):
     data = HTMLbody.objects.get(pk = 1)
     d = {
@@ -182,4 +177,31 @@ def body(request):
         "body": data,
         }
     #writeLog(request, "" , LogType.ACCESS_ADMIN_INDEX)
+    return render(request, "gameregister/body.html", d)
+
+def manual_page(request):
+    writeLog(request, "" , LogType.ACCESS_MANUAL_PAGE)
+    data = GameInfo.objects.all()
+    d = {
+        "title": "マニュアル班用ページ",
+        "data": data,
+        }    
+    return render(request, "gameregister/body.html", d)
+
+def movie_page(request):
+    writeLog(request, "" , LogType.ACCESS_MOVIE_PAGE)
+    data = GameInfo.objects.all()
+    d = {
+        "title": "プレイ動画班用ページ",
+        "data": data,
+        }
+    return render(request, "gameregister/body.html", d)
+
+def sign_bord_page(request):
+    writeLog(request, "" , LogType.ACCESS_SIGH_BORD_PAGE)
+    data = GameInfo.objects.all()
+    d = {
+        "title": "プロジェクト看板班用ページ",
+        "data": data,
+        }
     return render(request, "gameregister/body.html", d)
