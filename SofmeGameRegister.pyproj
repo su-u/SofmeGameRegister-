@@ -90,6 +90,8 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\gameregisterform.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\manual_page.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\movie_page.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\index.html">
       <SubType>Code</SubType>
     </Content>
