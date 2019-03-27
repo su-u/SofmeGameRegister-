@@ -186,7 +186,7 @@ def manual_page(request):
         "title": "マニュアル班用ページ",
         "data": data,
         }    
-    return render(request, "gameregister/body.html", d)
+    return render(request, "gameregister/manual_page.html", d)
 
 def movie_page(request):
     writeLog(request, "" , LogType.ACCESS_MOVIE_PAGE)
