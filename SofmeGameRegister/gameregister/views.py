@@ -79,7 +79,7 @@ def edit(request, editing_id):
                 return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data.game_uuid})
         elif request.POST.get("edit_uuid") != str(data.game_uuid):
             uuid_error = "UUIDが異なります"
-            writeLog(request, "" , LogType.FAILED_UUID)
+            writeLog(request, data , LogType.FAILED_UUID)
     else:
         form = GameInfoFormEdit(initial = {
             "name": data.name,
@@ -121,7 +121,7 @@ def edit(request, editing_id):
         "uuid_error":uuid_error,
         "file":static_file,
     }
-    writeLog(request, "" , LogType.ACCESS_EDIT)
+    writeLog(request, data, LogType.ACCESS_EDIT)
 
     return render(request, "gameregister/edit.html", d)
 
