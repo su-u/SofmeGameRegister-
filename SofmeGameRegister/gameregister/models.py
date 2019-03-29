@@ -146,7 +146,7 @@ class Log(models.Model):
     ip = models.GenericIPAddressField("IPアドレス")
     access_at = models.DateTimeField("アクセス時間", auto_now_add = True)
     access_type = models.CharField("アクセスタイプ", max_length = 100)
-    post = models.ForeignKey(GameInfo, blank = True, null = True)
+    post = models.ForeignKey(GameInfo, blank = True, null = True, on_delete=models.SET_NULL)
  
     def __str__(self):
         return "{0},{1}".format(self.ip, self.access_at)

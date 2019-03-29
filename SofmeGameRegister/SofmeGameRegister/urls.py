@@ -1,8 +1,8 @@
-from django.conf.urls import include, url
+from django.urls import path, include, re_path
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^tinymce/', include('tinymce.urls')),
-    url(r"", include("gameregister.urls")),
-    url(r"^admin/", include(admin.site.urls)),
+    re_path('admin/', admin.site.urls),
+    path('tinymce/', include(('tinymce.urls'),)),
+    path('', include(('gameregister.urls'),)),
 ]
