@@ -204,4 +204,4 @@ def sign_bord_page(request):
         "title": "プロジェクト看板班用ページ",
         "data": data,
         }
-    return render(request, "gameregister/body.html", d)
+    return render(request, "gameregister/sigh_bord_page.html", d)

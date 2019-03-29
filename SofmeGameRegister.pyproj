@@ -53,9 +53,8 @@
     <Folder Include="SofmeGameRegister" />
     <Folder Include="C:\Users\SAVIOR\Source\Repos\SofmeGameRegister\SofmeGameRegister\form\templates\" />
     <Folder Include="C:\Users\SAVIOR\Source\Repos\SofmeGameRegister\SofmeGameRegister\form\templates\form\" />
-    <Folder Include="SofmeGameRegister\form\" />
-    <Folder Include="SofmeGameRegister\form\templates\" />
-    <Folder Include="SofmeGameRegister\form\templates\form\" />
+    <Folder Include="SofmeGameRegister\admin\templates\" />
+    <Folder Include="SofmeGameRegister\admin\templates\admin\" />
     <Folder Include="SofmeGameRegister\gameregister\" />
     <Folder Include="SofmeGameRegister\gameregister\migrations\" />
     <Folder Include="SofmeGameRegister\gameregister\static\" />
@@ -63,8 +62,12 @@
     <Folder Include="SofmeGameRegister\gameregister\static\gameregister\css\" />
     <Folder Include="SofmeGameRegister\gameregister\static\gameregister\js\" />
     <Folder Include="SofmeGameRegister\gameregister\static\gameregister\img\" />
+    <Folder Include="SofmeGameRegister\gameregister\static\admin\" />
     <Folder Include="SofmeGameRegister\gameregister\templates\" />
+    <Folder Include="SofmeGameRegister\gameregister\templates\admin\gameregister\" />
     <Folder Include="SofmeGameRegister\gameregister\templates\gameregister\" />
+    <Folder Include="SofmeGameRegister\gameregister\templates\admin\" />
+    <Folder Include="SofmeGameRegister\admin\" />
     <Folder Include="SofmeGameRegister\SofmeGameRegister" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +75,8 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="requirements.txt" />
+    <Content Include="SofmeGameRegister\admin\templates\admin\base.html" />
+    <Content Include="SofmeGameRegister\gameregister\static\admin\base.css" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\index.css" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\multi-select.css" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_24dp.png" />
@@ -79,6 +84,7 @@
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\favicon.ico" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\jquery-3.3.1.js" />
     <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\jquery.multi-select.js" />
+    <Content Include="SofmeGameRegister\gameregister\templates\admin\gameregister\base.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\admin-index.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\base.html" />
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\body.html">
@@ -96,6 +102,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="SofmeGameRegister\gameregister\templates\gameregister\lp.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\sigh_bord_page.html">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
