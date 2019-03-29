@@ -6,7 +6,7 @@ from django.contrib import admin
 urlpatterns = [
     path("register", views.GameInfoView, name = "GameInfoView"),
     path("complete", views.complete, name = "complete"),
-    path("edit/(?P<editing_id>\d+)/", views.edit, name="edit"),
+    path("edit/<int:editing_id>/", views.edit, name="edit"),
     path("index", views.index, name="index"),
     path("", views.lp, name = "Lp"),
     path("confirmation", views.confirmation, name = "Confirmation"),
