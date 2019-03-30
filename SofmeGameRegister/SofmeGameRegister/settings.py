@@ -127,3 +127,20 @@ TINYMCE_DEFAULT_CONFIG = {
     "toolbar"  : 'bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | image | link jbimages | preview',
     "element_format" : "html"
 }
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+        },
+    },
+}
