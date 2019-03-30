@@ -11,6 +11,10 @@ import logging
 from ipware import get_client_ip
 from .logtype import LogType
 
+from django.contrib.admin.models import LogEntry, ADDITION, CHANGE 
+from django.contrib.admin import models
+from django.contrib.contenttypes.models import ContentType
+
 from .models import GameInfo, Log, HTMLbody
 from .forms import GameInfoForm, EditForm, GameInfoFormEdit
 
@@ -76,6 +80,11 @@ def edit(request, editing_id):
                 form.save()
                 id = GameInfo.objects.get(pk = editing_id)
                 writeLog(request, id, LogType.UPDATE)
+
+
+                l = LogEntry(user_id=request.user.id, actions_flag=1, change_message="...")
+                l.save()
+
                 return render(request, "gameregister/complete.html", {"title" : "ゲーム更新完了", "message" : data.game_uuid})
         elif request.POST.get("edit_uuid") != str(data.game_uuid):
             uuid_error = "UUIDが異なります"

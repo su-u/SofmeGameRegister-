@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import GameInfo, Log, Tag, HTMLbody
-#from import_export.admin import ImportExportActionModelAdmin
 
 admin.site.site_title = "ゲーム情報管理ページ"
 admin.site.site_header = "ゲーム情報管理ページ"

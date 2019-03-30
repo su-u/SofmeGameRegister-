@@ -7,9 +7,19 @@ from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFill
 from django.core.exceptions import ValidationError
 from django.core.validators import MinLengthValidator
+
+from django.contrib.admin.models import LogEntry
+from django.contrib.contenttypes.models import ContentType
+from django.utils.translation import gettext, gettext_lazy as _
+from django.contrib.admin.utils import (
+    construct_change_message,
+)
+
+
 import os
 import uuid
 import urllib.parse
+
 
 #FILE_PATH = "gameregister/static/gameregister"
 FILE_PATH = ""
@@ -141,13 +151,22 @@ class GameInfo(models.Model):
     def __unicode__(self):
         return u'%s' % (self.name)
 
+ADDITION = 1
+CHANGE = 2
+DELETION = 3
+
+ACTION_FLAG_CHOICES = (
+    (ADDITION, _('Addition')),
+    (CHANGE, _('Change')),
+    (DELETION, _('Deletion')),
+)
 
 class Log(models.Model):
     ip = models.GenericIPAddressField("IPアドレス")
     access_at = models.DateTimeField("アクセス時間", auto_now_add = True)
     access_type = models.CharField("アクセスタイプ", max_length = 100)
     post = models.ForeignKey(GameInfo, blank = True, null = True, on_delete=models.SET_NULL)
- 
+
     def __str__(self):
         return "{0},{1}".format(self.ip, self.access_at)
 
@@ -157,6 +176,7 @@ class Log(models.Model):
             self.access_at.strftime("%H"), self.access_at.strftime("%M"), self.access_at.strftime("%S")
             )
 
+
 class HTMLbody(models.Model):
     page_id = models.IntegerField("PageID", primary_key = True)
     title = models.CharField(max_length=120, blank = True, null = True)
@@ -165,3 +185,4 @@ class HTMLbody(models.Model):
 
     def __str__(self):
         return self.title
+
