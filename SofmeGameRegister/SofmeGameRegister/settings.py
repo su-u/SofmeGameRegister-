@@ -31,18 +31,19 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'gameregister',
+
+    'colorfield',
+    'django_cleanup.apps.CleanupConfig',
+    'tinymce',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gameregister',
-    'colorfield',
-    'django_cleanup.apps.CleanupConfig',
-    'tinymce',
     'imagekit'
-#    'import_export',
 )
 
 MIDDLEWARE = [

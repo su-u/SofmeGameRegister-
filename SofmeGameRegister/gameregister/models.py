@@ -133,7 +133,7 @@ class GameInfo(models.Model):
 
     is_display = models.BooleanField("表示可能", default = True, blank = True)
 
-    tag = models.ManyToManyField(Tag, verbose_name="タグ",blank = True, null = True )
+    tag = models.ManyToManyField(Tag, verbose_name="タグ",blank = True)
 
     def __str__(self):
         return str(self.name)

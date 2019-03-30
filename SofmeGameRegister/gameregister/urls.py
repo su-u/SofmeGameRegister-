@@ -13,6 +13,7 @@ urlpatterns = [
     path("adminindex", views.admin_index, name = "Admin-index"),
     path("manual", views.manual_page, name = "Manual-Page"),
     path("movie", views.movie_page, name = "Movie-Page"),
+    path("signbord",views.sign_bord_page, name = "Sign-Bord-Page"),
 
     path("body", views.body, name = "body"),
 ]

@@ -14,11 +14,11 @@
                     <thead>
                         <tr>
                             <th>GameID</th>
-                            <th>“W¦ID</th>
-                            <th>–¼‘O</th>
-                            <th>ÅIXVŠÔ</th>
-                            <th>ƒ‰ƒ“ƒ`ƒƒ[—p“®‰æ</th>
-                            <th>ƒvƒŒƒC“®‰æ—p“®‰æ</th>
+                            <th>å±•ç¤ºID</th>
+                            <th>åå‰</th>
+                            <th>æœ€çµ‚æ›´æ–°æ™‚é–“</th>
+                            <th>ãƒ©ãƒ³ãƒãƒ£ãƒ¼ç”¨å‹•ç”»</th>
+                            <th>ãƒ—ãƒ¬ã‚¤å‹•ç”»ç”¨å‹•ç”»</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,18 +35,18 @@
                             {% if item.movie.url != "" %}
                             <td><a href="{{item.movie.url|safe}}">{{ item.movie.name }}</a></td>
                             {% else %}
-                            <td>–¢’ño</td>
+                            <td>æœªæå‡º</td>
                             {% endif %}
                             {% if item.movie_2.url != "" %}
                             <td><a href="{{item.movie_2.url|safe}}">{{ item.movie_2.name }}</a></td>
                             {% else %}
-                            <td>–¢’ño</td>
+                            <td>æœªæå‡º</td>
                             {% endif %}
                         </tr>
                         {% endfor %}
                     </tbody>
                 </table>
-                <button class="button small-button back-button" onClick="location.href='/'">–ß‚é</button>
+                <button class="button small-button back-button" onClick="location.href='/'">æˆ»ã‚‹</button>
             </div>
         </div>
     </div>
