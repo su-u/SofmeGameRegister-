@@ -245,11 +245,32 @@ tbody tr td {
     word-break: break-all;
 }
 
+/*sign-bord*/
+.index-panel{
+    width: 95%;
+}
+
+.index-picture {
+    width: 95%;
+}
+
+.name-size{
+    width:16%;
+}
+
+.panel-size{
+    width:15%
+}
+
+.picture-size{
+    width:20%;
+}
+
 
 /*lp*/
-.lp-button{
-    margin-top:30px;
-    margin-bottom:50px;
+.lp-button {
+    margin-top: 30px;
+    margin-bottom: 50px;
 }
 .highlight {
     font-size: 18px;
