@@ -10,7 +10,7 @@ class GameInfoForm(forms.ModelForm):
         
         widgets = {
             "name": forms.TextInput(attrs={"placeholder":"ゲーム名"}),
-            "representative": forms.TextInput(attrs={"placeholder":"企画者"}),
+            "representative": forms.TextInput(attrs={"placeholder":"企画者HN"}),
             "launcher_description": forms.TextInput(attrs={"placeholder":"ランチャー用説明文","row":"2"}),
             "signbord_description": forms.TextInput(attrs={"placeholder":"プロジェクト看板用説明文","row":"2"}),
             "game_id": forms.TextInput(attrs={"placeholder":"GameID","type":"number"}),
@@ -28,7 +28,7 @@ class GameInfoFormEdit(forms.ModelForm):
         
         widgets = {
             "name": forms.TextInput(attrs={"placeholder":"ゲーム名"}),
-            "representative": forms.TextInput(attrs={"placeholder":"企画者"}),
+            "representative": forms.TextInput(attrs={"placeholder":"企画者HN"}),
             "launcher_description": forms.TextInput(attrs={"placeholder":"ランチャー用説明文","row":"2"}),
             "signbord_description": forms.TextInput(attrs={"placeholder":"プロジェクト看板用説明文","row":"2"}),
             "game_id": forms.TextInput(attrs={"placeholder":"GameID","type":"number", "readonly":"readonly"}),
