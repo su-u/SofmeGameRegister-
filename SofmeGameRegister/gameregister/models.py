@@ -34,8 +34,11 @@ def upload_to_panel(instance, filename):
 def upload_to_pictures(instance, filename):
     return "{id}/pictures/{file}".format(id=instance.game_id, file=(filename))
 
-def upload_to_movie(instance, filename):
+def upload_to_launcher_movie(instance, filename):
     return "{id}/movie/{file}".format(id=instance.game_id, file=(filename))
+
+def upload_to_play_movie(instance, filename):
+    return "{id}/playmovie/{file}".format(id=instance.game_id, file=(filename))
 
 def upload_to_manual(instance, filename):
     return "{id}/manual/{file}".format(id=instance.game_id, file=(filename))
@@ -135,8 +138,8 @@ class GameInfo(models.Model):
                                 blank = True,
                                 validators=[validate_is_pictures])
 
-    movie = models.FileField("ランチャー用動画", upload_to = upload_to_movie, blank = True, validators=[validate_is_movies])
-    movie_2 = models.FileField("プレイ動画", upload_to = upload_to_movie, blank = True, validators=[validate_is_movies])
+    movie = models.FileField("ランチャー用動画", upload_to = upload_to_launcher_movie, blank = True, validators=[validate_is_movies])
+    movie_2 = models.FileField("プレイ動画", upload_to = upload_to_play_movie, blank = True, validators=[validate_is_movies])
 
     created_at = models.DateTimeField("作成時", auto_now_add = True)
     updated_at = models.DateTimeField("更新時", auto_now = True)
