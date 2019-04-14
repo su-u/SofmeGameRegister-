@@ -182,7 +182,7 @@ class Log(models.Model):
 
 class HTMLbody(models.Model):
     page_id = models.IntegerField("PageID", primary_key = True)
-    title = models.CharField(max_length=120, blank = True, null = True)
+    title = models.CharField(max_length=120)
     description = models.TextField("ページの説明", max_length=250, blank = True, null = True)
     body = HTMLField(blank = True)
 

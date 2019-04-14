@@ -157,15 +157,27 @@ def index(request):
     return render(request, "gameregister/index.html", d)
 
 def lp(request):
+    try:
+        body = HTMLbody.objects.get(pk = 1)
+    except HTMLbody.DoesNotExist:
+        body = ""
+
     d = {
         "title": "ランディングページ",
+        "body": body,
         }
     writeLog(request, "" , LogType.ACCESS_LP)
     return render(request, "gameregister/lp.html", d)
 
 def confirmation(request):
+    try:
+        body = HTMLbody.objects.get(pk = 2)
+    except HTMLbody.DoesNotExist:
+        body = ""
+
     d = {
         "title": "確認ページ",
+        "body": body,
         }
     writeLog(request, "" , LogType.ACCESS_CONFIRMATION)
     return render(request, "gameregister/confirmation.html", d)
