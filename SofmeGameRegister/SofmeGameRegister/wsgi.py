@@ -8,8 +8,13 @@ https://docs.djangoproject.com/en/1.8/howto/deployment/wsgi/
 """
 
 import os
+#import sys
+import sys  # 追加
+
 
 from django.core.wsgi import get_wsgi_application
+sys.path.append('/var/www/python/SofmeGameRegister')             # 追加
+#sys.path.append('/var/www/python/SofmeGameRegister/SofmeGameRegister')   # 追加
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "SofmeGameRegister.settings")
 

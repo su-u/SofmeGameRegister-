@@ -25,12 +25,13 @@ SECRET_KEY = 'cfgrs+5bvcpnvw%b+l1e(8!oe+_td&gaw^78-f*cdd5^hu$!b$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["unitech.jp","sofme.unitech.jp"]
 
 
 # Application definition
 
 INSTALLED_APPS = (
+    'SofmeGameRegister',
     'gameregister',
 
     'colorfield',
@@ -83,7 +84,7 @@ WSGI_APPLICATION = 'SofmeGameRegister.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': '/var/www/python/SofmeGameRegister/db/db.sqlite3',
     }
 }
 
@@ -106,16 +107,21 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),  
-)
 
 
-
+STATIC_ROOT = "/var/www/html/static/"
 #MEDIA_URL = '/static/gameregister/file/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "gameregister/static/gameregister/file/")
+MEDIA_ROOT = "/var/www/html/static/gameregister/file/"
 MEDIA_URL = "/static/gameregister/file/"
+
+
+FILE_UPLOAD_MAX_MEMORY_SIZE = 335544320
+DATA_UPLOAD_MAX_MEMORY_SIZE = 335544320
+
+MAX_UPLOAD_SIZ = 335544320
+#FILE_UPLOAD_TEMP_DIR = "/home/su-u/temp/"
+
 
 
 TINYMCE_DEFAULT_CONFIG = {
@@ -128,19 +134,3 @@ TINYMCE_DEFAULT_CONFIG = {
     "element_format" : "html"
 }
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        },
-    },
-}
