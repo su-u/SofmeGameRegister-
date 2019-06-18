@@ -1,0 +1,69 @@
+{% extends "gameregister/base.html" %}
+{% load static %}
+
+{% block body %}
+<p>{{message|safe}}</p>
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="header">
+                <h1 class="page-title">{{title|safe}}</h1>
+            </div>
+            <div class="body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GameID</th>
+                            <th>展示ID</th>
+                            <th class="name-size">名前</th>
+                            <th class="panel-size">パネル</th>
+                            <th class="picture-size">画像①</th>
+                            <th class="picture-size">画像②</th>
+                            <th class="picture-size">画像③</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            <td>{{ item.game_id }}</td>
+                            {% if item.display_id != None %}
+                            <td>{{ item.display_id }}</td>
+                            {% else %}
+                            <td></td>
+                            {% endif %}
+
+                            <td>{{ item.name }}</td>
+
+                            {% if item.panel.url != "" %}
+                            <td><a href="{{item.panel.url|safe}}"><img class="index-panel" src="{{item.panel.url|safe}}"></a></td>
+                            {% else %}
+                            <td>未提出</td>
+                            {% endif %}
+
+                            {% if item.picture_1.url != "" %}
+                            <td><a href="{{item.picture_1.url|safe}}"><img class="index-picture" src="{{item.picture_1.url|safe}}"></a></td>
+                            {% else %}
+                            <td>未提出</td>
+                            {% endif %}
+
+                            {% if item.picture_2.url != "" %}
+                            <td><a href="{{item.picture_2.url|safe}}"><img class="index-picture" src="{{item.picture_2.url|safe}}"></a></td>
+                            {% else %}
+                            <td>未提出</td>
+                            {% endif %}
+
+                            {% if item.picture_3.url != "" %}
+                            <td><a href="{{item.picture_3.url|safe}}"><img class="index-picture" src="{{item.picture_3.url|safe}}"></a></td>
+                            {% else %}
+                            <td>未提出</td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button class="button small-button back-button" onClick="location.href='/'">戻る</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

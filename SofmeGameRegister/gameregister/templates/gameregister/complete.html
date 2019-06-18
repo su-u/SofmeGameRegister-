@@ -1,0 +1,20 @@
+﻿{% extends "gameregister/base.html" %}
+{% load static %}
+
+{% block body %}
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="header">
+                <h1 class="page-title">{{title|safe}}</h1>
+            </div>
+            <h2>UUID</h2>
+            <div class="body">
+                <p class="highlight uuid">{{message|safe}}</p>
+                <button class="button back-button" onClick="location.href='/'">トップページへ戻る</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

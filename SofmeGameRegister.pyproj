@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{90b63264-d605-47cd-a7c4-a4620d99d110}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="SofmeGameRegister\gameregister\admin.py" />
+    <Compile Include="SofmeGameRegister\gameregister\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SofmeGameRegister\gameregister\migrations\__init__.py" />
+    <Compile Include="SofmeGameRegister\gameregister\models.py" />
+    <Compile Include="SofmeGameRegister\gameregister\tests.py" />
+    <Compile Include="SofmeGameRegister\gameregister\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SofmeGameRegister\gameregister\utils.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SofmeGameRegister\gameregister\views.py" />
+    <Compile Include="SofmeGameRegister\gameregister\__init__.py" />
+    <Compile Include="SofmeGameRegister\manage.py" />
+    <Compile Include="SofmeGameRegister\gameregister\logtype.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SofmeGameRegister\SofmeGameRegister\admin.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SofmeGameRegister\SofmeGameRegister\models.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SofmeGameRegister\SofmeGameRegister\settings.py" />
+    <Compile Include="SofmeGameRegister\SofmeGameRegister\urls.py" />
+    <Compile Include="SofmeGameRegister\SofmeGameRegister\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SofmeGameRegister\SofmeGameRegister\wsgi.py" />
+    <Compile Include="SofmeGameRegister\SofmeGameRegister\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SofmeGameRegister" />
+    <Folder Include="C:\Users\SAVIOR\Source\Repos\SofmeGameRegister\SofmeGameRegister\form\templates\" />
+    <Folder Include="C:\Users\SAVIOR\Source\Repos\SofmeGameRegister\SofmeGameRegister\form\templates\form\" />
+    <Folder Include="SofmeGameRegister\admin\templates\" />
+    <Folder Include="SofmeGameRegister\admin\templates\admin\" />
+    <Folder Include="SofmeGameRegister\form\" />
+    <Folder Include="SofmeGameRegister\form\templates\" />
+    <Folder Include="SofmeGameRegister\form\templates\form\" />
+    <Folder Include="SofmeGameRegister\gameregister\" />
+    <Folder Include="SofmeGameRegister\gameregister\migrations\" />
+    <Folder Include="SofmeGameRegister\gameregister\static\" />
+    <Folder Include="SofmeGameRegister\gameregister\static\admin\" />
+    <Folder Include="SofmeGameRegister\gameregister\static\admin\css\" />
+    <Folder Include="SofmeGameRegister\gameregister\static\gameregister\" />
+    <Folder Include="SofmeGameRegister\gameregister\static\gameregister\css\" />
+    <Folder Include="SofmeGameRegister\gameregister\static\gameregister\js\" />
+    <Folder Include="SofmeGameRegister\gameregister\static\gameregister\img\" />
+    <Folder Include="SofmeGameRegister\gameregister\templates\" />
+    <Folder Include="SofmeGameRegister\gameregister\templates\admin\" />
+    <Folder Include="SofmeGameRegister\gameregister\templates\gameregister\" />
+    <Folder Include="SofmeGameRegister\admin\" />
+    <Folder Include="SofmeGameRegister\SofmeGameRegister" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="com.txt">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="requirements.txt" />
+    <Content Include="SofmeGameRegister\admin\templates\admin\base.html" />
+    <Content Include="SofmeGameRegister\gameregister\static\admin\css\base.css" />
+    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\index.css" />
+    <Content Include="SofmeGameRegister\gameregister\static\gameregister\css\multi-select.css" />
+    <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_24dp.png" />
+    <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\baseline_send_white_36dp.png" />
+    <Content Include="SofmeGameRegister\gameregister\static\gameregister\img\favicon.ico" />
+    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\jquery-3.3.1.js" />
+    <Content Include="SofmeGameRegister\gameregister\static\gameregister\js\jquery.multi-select.js" />
+    <Content Include="SofmeGameRegister\gameregister\templates\admin\index.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\admin-index.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\base.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\body.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\complete.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\confirmation.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\edit.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\gameregisterform.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\manual_page.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\movie_page.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\index.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\lp.html" />
+    <Content Include="SofmeGameRegister\gameregister\templates\gameregister\sigh_bord_page.html">
+      <SubType>Code</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.6</Version>
+      <Description>env (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>

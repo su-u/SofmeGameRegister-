@@ -1,0 +1,173 @@
+{% extends "gameregister/base.html" %}
+{% load static %}
+
+{% block body %}
+
+<p>{{message|safe}}</p>
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="header">
+                <h1 class="page-title">{{title|safe}}</h1>
+            </div>
+            <div class="body">
+                <button class="button small-button back-button" onClick="location.href='/index'">戻る</button>
+                <form action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="header">
+                        <h1>ゲーム情報登録</h1>
+                    </div>
+                    {{ form.non_field_errors }}
+                    <div class="fieldWrapper">
+                        {{ form.name.errors }}
+                        <div><label for="{{ form.name.id_for_label }}">ゲーム名:</label></div>
+                        {{ form.name }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.representative.errors }}
+                        <label for="{{ form.representative.id_for_label }}">企画者:</label>
+                        {{ form.representative }}
+                    </div>
+                    <div class="fieldWrapper idnumber">
+                        {{ form.game_id.errors }}
+                        <label for="{{ form.game_id.id_for_label }}" class="row">GameID:</label>
+                        {{ form.game_id }}
+                    </div>
+                    <div class="fieldWrapper idnumber">
+                        {{ form.display_id.errors }}
+                        <label for="{{ form.display_id.id_for_label }}" class="row">DisplayID:</label>
+                        {{ form.display_id }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.launcher_description.errors }}
+                        <label for="{{ form.launcher_description.id_for_label }}">ランチャー用説明文:</label>
+                        {{ form.launcher_description }}
+                    </div>
+                    <div class="fieldWrapper">
+                        {{ form.signbord_description.errors }}
+                        <label for="{{ form.signbord_description.id_for_label }}">プロジェクト看板用説明文:</label>
+                        {{ form.signbord_description }}
+                    </div>
+                    <div class="fieldWrapper">
+                        <div>動作端末:</div>
+                        {{ form.windows.errors }}
+                        {{ form.windows }}
+                        <label for="{{ form.windows.id_for_label }}">Windows</label>
+                        {{ form.android.errors }}
+                        {{ form.android }}
+                        <label for="{{ form.android.id_for_label }}">Android</label>
+                        {{ form.vr.errors }}
+                        {{ form.vr }}
+                        <label for="{{ form.vr.id_for_label }}">VR</label>
+                        {{ form.other.errors }}
+                        {{ form.other }}
+                        <label for="{{ form.other.id_for_label }}">その他・独自筐体</label>
+                    </div>
+                    <div class="fieldWrapper">
+                        <div>コントローラ:</div>
+                        {{ form.is_mouse.errors }}
+                        {{ form.is_mouse }}
+                        <label for="{{ form.is_mouse.id_for_label }}">マウス</label>
+                        {{ form.is_gamepad.errors }}
+                        {{ form.is_gamepad }}
+                        <label for="{{ form.is_gamepad.id_for_label }}">ゲームパッド</label>
+                        {{ form.is_keyboard.errors }}
+                        {{ form.is_keyboard }}
+                        <label for="{{ form.is_keyboard.id_for_label }}">キーボード</label>
+                    </div>
+                    <div class="fieldWrapper select">
+                        <div>タグ:</div>
+                        {{ form.tag.errors }}
+                        {{ form.tag }}
+                    </div>
+                    <div class="header">
+                        <h1>ファイル登録</h1>
+                    </div>
+                    <div class="fieldWrapperfile">
+                        {{ form.game_manual.errors }}
+                        <div class="filelabel"><label for="{{ form.game_manual.id_for_label }}">ゲームマニュアル:</label></div>
+                        {{ form.game_manual }}
+                    </div>
+                    <div class="fieldWrapperfile">
+                        {{ form.gamefile.errors }}
+                        <div class="filelabel"><label for="{{ form.gamefile.id_for_label }}">ゲームファイル:</label></div>
+                        {{ form.gamefile }}
+                    </div>
+                    <div class="fieldWrapperfile file-img">
+                        <div class="form">
+                            {{ form.panel.errors }}
+                            <div class="filelabel"><label for="{{ form.panel.id_for_label }}">パネルファイル:</label></div>
+                            {{ form.panel }}
+                        </div>
+
+                        {% if file.panel != "" %}
+                        <div class="img-preview"><img src="{{file.panel.url|safe}}" /></div>
+                        {% endif %}
+
+                    </div>
+                    <div class="fieldWrapperfile file-img">
+                        <div class="form">
+                            {{ form.picture_1.errors }}
+                            <div class="filelabel"><label for="{{ form.picture_1.id_for_label }}">画像1:</label></div>
+                            {{ form.picture_1 }}
+                        </div>
+
+                        {% if file.picture_1 != "" %}
+                        <div class="img-preview"><img src="{{file.picture_1.url|safe}}" /></div>
+                        {% endif %}
+
+                    </div>
+                    <div class="fieldWrapperfile file-img">
+                        <div class="form">
+                            {{ form.picture_2.errors }}
+                            <div class="filelabel"> <label for="{{ form.picture_2.id_for_label }}">画像2:</label></div>
+                            {{ form.picture_2 }}
+                        </div>
+
+                        {% if file.picture_2 != "" %}
+                        <div class="img-preview"><img src="{{file.picture_2.url|safe}}" /></div>
+                        {% endif %}
+
+                    </div>
+                    <div class="fieldWrapperfile file-img">
+                        <div class="form">
+                            {{ form.picture_3.errors }}
+                            <div class="filelabel"><label for="{{ form.picture_3.id_for_label }}">画像3:</label></div>
+                            {{ form.picture_3 }}
+                        </div>
+
+                        {% if file.picture_3 != "" %}
+                        <div class="img-preview"><img src="{{file.picture_3.url|safe}}" /></div>
+                        {% endif %}
+
+                    </div>
+                    <div class="fieldWrapperfile">
+                        {{ form.movie.errors }}
+                        <div class="filelabel"><label for="{{ form.movie.id_for_label }}">ランチャー用動画:</label></div>
+                        {{ form.movie }}
+                    </div>
+
+                    <div class="fieldWrapperfile">
+                        {{ form.movie_2.errors }}
+                        <div class="filelabel"><label for="{{ form.movie_2.id_for_label }}">プレイ動画用動画:</label></div>
+                        {{ form.movie_2 }}
+                    </div>
+
+                    <div class="fieldWrapper">
+                        {% if uuid_error %}
+                        <div class="errorlist">
+                            <li>{{uuid_error}}</li>
+                        </div>
+                        {% endif %}
+                        {{edit_form.as_table}}
+                    </div>
+                    <div class="formsend">
+                        <input type="submit" value="送信">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

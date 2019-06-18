@@ -1,0 +1,50 @@
+{% extends "gameregister/base.html" %} {% load static %} {% block body %}
+<p>{{message|safe}}</p>
+<section class="content">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="header">
+                <h1 class="page-title">{{title|safe}}</h1>
+            </div>
+            <div class="body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GameID</th>
+                            <th>DIsplayID</th>
+                            <th>名前</th>
+                            <th>企画者HN</th>
+                            <th>初期提出時間</th>
+                            <th>最終更新時間</th>
+
+                            <th>UUID</th>
+                            <th>展示</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in data %}
+                        <tr>
+                            <td>{{ item.game_id }}</td>
+                            {% if item.display_id != None %}
+                            <td>{{ item.display_id }}</td>
+                            {% else %}
+                            <td></td>
+                            {% endif %}
+                            <td>{{ item.name }}</td>
+                            <td>{{ item.representative }}</td>
+                            <td>{{ item.created_at }}</td>
+                            <td>{{ item.updated_at }}</td>
+
+                            <td>{{ item.game_uuid }}</td>
+                            <td>{{ item.is_display }}</td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <button class="button small-button back-button" onClick="location.href='/'">戻る</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
