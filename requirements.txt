@@ -1,4 +1,4 @@
-Django==2.1.7
+Django==2.1.11
 django-colorfield==0.1.15
 django-ipware==2.1.0
 mod-wsgi==4.6.5
